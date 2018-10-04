@@ -34,18 +34,18 @@ public class GUI
      */
     public GUI()
     {
-        new Clicker();
         makeFrame();
+        new Clicker();
     }
 
     /**
-     * This is where I update the different labels.
+     * This is where I update the clicks label.
      */
-    private void updateLabel()
+    private void updateClicks()
     {
-        while(frameRunning) {
-            clicks.setText(Integer.toString(click.playerClick));
-        }
+        //click.clicks();
+        //clicks.setText(Integer.toString(click.playerClick));
+        //System.out.println(Integer.toString(click.playerClick));
     }
 
     /**
@@ -67,7 +67,7 @@ public class GUI
         testPanel.add(clicks);
 
         JButton clickerButton = new JButton("Player Click");
-        clickerButton.addActionListener(e -> {click.clicks();});
+        clickerButton.addActionListener(e -> {updateClicks();});
         testPanel.add(clickerButton);
 
         contentPane.add(testPanel, BorderLayout.CENTER);
@@ -78,7 +78,7 @@ public class GUI
         frame.setLocation(d.width/2 - frame.getWidth()/2, d.height/2 - frame.getHeight()/2);
         frame.setVisible(true);
 
-        updateLabel();
+
     }
 
 
