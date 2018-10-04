@@ -15,7 +15,7 @@ public class Clicker
     public Clicker()
     {
         clicks();
-
+        playerClick = 0;
     }
 
     /**
@@ -24,6 +24,7 @@ public class Clicker
     public void clicks()
     {
         playerClick++;
+        System.out.println(playerClick);
     }
 
 
