@@ -6,8 +6,22 @@
  */
 public class Clicker
 {
+    //I will start by making variables.
+    int click = 0;
+
+    /**
+     * This is where
+     */
     public Clicker()
     {
+        clicks();
+    }
 
+    /**
+     * This is where I record the clicks that is made.
+     */
+    public void clicks()
+    {
+        click++;
     }
 }
