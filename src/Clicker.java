@@ -7,7 +7,7 @@
 public class Clicker
 {
     //I will start by making variables.
-    int click = 0;
+    public int playerClick = 0;
 
     /**
      * This is where
@@ -15,6 +15,7 @@ public class Clicker
     public Clicker()
     {
         clicks();
+
     }
 
     /**
@@ -22,6 +23,15 @@ public class Clicker
      */
     public void clicks()
     {
-        click++;
+        playerClick++;
     }
+
+
+    /**
+     * For testing
+     */
+    /*public static void main (String[] args)
+    {
+        new Clicker();
+    }*/
 }
