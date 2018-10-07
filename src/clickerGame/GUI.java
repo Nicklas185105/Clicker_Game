@@ -14,16 +14,12 @@ import java.awt.event.KeyEvent;
  */
 public class GUI
 {
-    //Starting out with importing my other classes
-    public Clicker click;
-
     //This is where I import different things like: JFrame, JButton and etc.
     private JFrame frame;
     private JLabel clicks;
 
     //Here I'm making my variables
-    public boolean frameRunning = false;
-    public int totalClicks = 0;
+    private int totalClicks = 0;
 
     /**
      * This is running everything.
@@ -36,10 +32,10 @@ public class GUI
     /**
      * This is where I make the frame, and all the other important things.
      */
-    public GUI()
+    private GUI()
     {
         makeFrame();
-        new Clicker();
+        new clickerGame.Clicker();
     }
 
     /**
@@ -47,17 +43,15 @@ public class GUI
      */
     private void updateClicks()
     {
-        totalClicks += click.playerClicks;
+        totalClicks += clickerGame.Clicker.playerClicks;
         clicks.setText(Integer.toString(totalClicks));
     }
 
     /**
      * This is where I build the GUI (Frame).
      */
-    public void makeFrame()
+    private void makeFrame()
     {
-        frameRunning = true;
-
         frame = new JFrame("clickerGame.Clicker Game");
         JPanel contentPane = (JPanel)frame.getContentPane();
         contentPane.setBorder(new EmptyBorder(1, 60, 1, 60));
@@ -98,21 +92,25 @@ public class GUI
         System.exit(0);
     }
 
-    public void makeMenuBar(JFrame frame)
+    /**
+     * Here we make a menu bar, that uses the quit function we made earlier to quit the program.
+     * @param frame is used to tell the menu bar when it's called, which frame it's should be on.
+     */
+    private void makeMenuBar(JFrame frame)
     {
-        final int SHOURTCUT_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
+        final int SHORTCUT_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
 
-        JMenuBar menubar = new JMenuBar();
-        frame.setJMenuBar(menubar);
+        JMenuBar menuBar = new JMenuBar();
+        frame.setJMenuBar(menuBar);
 
         JMenu file;
         JMenuItem quit;
 
         file = new JMenu("File");
-        menubar.add(file);
+        menuBar.add(file);
 
         quit = new JMenuItem("Quit");
-            quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, SHOURTCUT_MASK));
+            quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, SHORTCUT_MASK));
             quit.addActionListener(e -> quit());
         file.add(quit);
     }
