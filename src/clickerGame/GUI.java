@@ -50,7 +50,7 @@ public class GUI
     /**
      * This is where I build the GUI (Frame).
      */
-    private void makeFrame()
+    public void makeFrame()
     {
         frame = new JFrame("clickerGame.Clicker Game");
         JPanel contentPane = (JPanel)frame.getContentPane();
@@ -110,9 +110,10 @@ public class GUI
         menuBar.add(file);
 
         quit = new JMenuItem("Quit");
-            quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, SHORTCUT_MASK));
-            quit.addActionListener(e -> quit());
+        quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, SHORTCUT_MASK));
+        quit.addActionListener(e -> quit());
         file.add(quit);
     }
+
 
 }
