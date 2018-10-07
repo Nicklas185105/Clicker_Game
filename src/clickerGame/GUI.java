@@ -4,6 +4,7 @@ package clickerGame;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 /**
  * This is the class where I build the GUI for the game.
@@ -56,11 +57,14 @@ public class GUI
     public void makeFrame()
     {
         frameRunning = true;
+
         frame = new JFrame("clickerGame.Clicker Game");
         JPanel contentPane = (JPanel)frame.getContentPane();
         contentPane.setBorder(new EmptyBorder(1, 60, 1, 60));
 
         contentPane.setLayout(new BorderLayout(12, 12));
+
+        makeMenuBar(frame);
 
         JPanel testPanel = new JPanel();
         testPanel.setLayout(new GridLayout(2, 1));
@@ -84,9 +88,33 @@ public class GUI
         frame.setMinimumSize(new Dimension(200,300));
         frame.setLocation(d.width/2 - frame.getWidth()/2, d.height/2 - frame.getHeight()/2);
         frame.setVisible(true);
-
-
     }
 
+    /**
+     * Quit function: quit the application.
+     */
+    private void quit()
+    {
+        System.exit(0);
+    }
+
+    public void makeMenuBar(JFrame frame)
+    {
+        final int SHOURTCUT_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
+
+        JMenuBar menubar = new JMenuBar();
+        frame.setJMenuBar(menubar);
+
+        JMenu file;
+        JMenuItem quit;
+
+        file = new JMenu("File");
+        menubar.add(file);
+
+        quit = new JMenuItem("Quit");
+            quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, SHOURTCUT_MASK));
+            quit.addActionListener(e -> quit());
+        file.add(quit);
+    }
 
 }
