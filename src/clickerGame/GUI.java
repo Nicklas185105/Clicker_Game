@@ -14,8 +14,7 @@ import java.awt.event.KeyEvent;
  */
 public class GUI
 {
-    //This is where I import different things like: JFrame, JButton and etc.
-    private JFrame frame;
+    //This is where I import JLabels.
     private JLabel clicks;
 
     //Here I'm making my variables
@@ -50,9 +49,9 @@ public class GUI
     /**
      * This is where I build the GUI (Frame).
      */
-    public void makeFrame()
+    private void makeFrame()
     {
-        frame = new JFrame("clickerGame.Clicker Game");
+        JFrame frame = new JFrame("clickerGame.Clicker Game");
         JPanel contentPane = (JPanel)frame.getContentPane();
         contentPane.setBorder(new EmptyBorder(1, 60, 1, 60));
 
