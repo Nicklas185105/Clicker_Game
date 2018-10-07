@@ -1,3 +1,5 @@
+package clickerGame;
+
 /**
  * This is where I make the core of the game.
  *
@@ -7,15 +9,14 @@
 public class Clicker
 {
     //I will start by making variables.
-    public int playerClick = 0;
+    public final static int playerClicks = 1;
 
     /**
      * This is where
      */
     public Clicker()
     {
-        clicks();
-        playerClick = 0;
+
     }
 
     /**
@@ -23,8 +24,7 @@ public class Clicker
      */
     public void clicks()
     {
-        playerClick++;
-        System.out.println(playerClick);
+
     }
 
 
@@ -33,6 +33,6 @@ public class Clicker
      */
     /*public static void main (String[] args)
     {
-        new Clicker();
+        new clickerGame.Clicker();
     }*/
 }
