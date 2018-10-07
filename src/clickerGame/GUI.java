@@ -1,3 +1,5 @@
+package clickerGame;
+
 //Importing different packages.
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -20,6 +22,7 @@ public class GUI
 
     //Here I'm making my variables
     public boolean frameRunning = false;
+    public int totalClicks = 0;
 
     /**
      * This is running everything.
@@ -43,9 +46,8 @@ public class GUI
      */
     private void updateClicks()
     {
-        //click.clicks();
-        //clicks.setText(Integer.toString(click.playerClick));
-        //System.out.println(Integer.toString(click.playerClick));
+        totalClicks += click.playerClicks;
+        clicks.setText(Integer.toString(totalClicks));
     }
 
     /**
@@ -54,7 +56,7 @@ public class GUI
     public void makeFrame()
     {
         frameRunning = true;
-        frame = new JFrame("Clicker Game");
+        frame = new JFrame("clickerGame.Clicker Game");
         JPanel contentPane = (JPanel)frame.getContentPane();
         contentPane.setBorder(new EmptyBorder(1, 60, 1, 60));
 
@@ -64,6 +66,10 @@ public class GUI
         testPanel.setLayout(new GridLayout(2, 1));
 
         clicks = new JLabel("0");
+        Font titelFont = clicks.getFont().deriveFont(30f);
+        clicks.setFont(titelFont);
+        clicks.setHorizontalAlignment(JLabel.CENTER);
+        clicks.setVerticalAlignment(JLabel.CENTER);
         testPanel.add(clicks);
 
         JButton clickerButton = new JButton("Player Click");
@@ -75,6 +81,7 @@ public class GUI
         frame.pack();
 
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setMinimumSize(new Dimension(200,300));
         frame.setLocation(d.width/2 - frame.getWidth()/2, d.height/2 - frame.getHeight()/2);
         frame.setVisible(true);
 
