@@ -59,9 +59,15 @@ public class GUI
 
         makeMenuBar(frame);
 
+        //----- Main Panel -----
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(1,3));
+            //----- Test Panel(ændre navn) -----
+                //Bliver indsættet ind i Main Panel, på første "row"
         JPanel testPanel = new JPanel();
         testPanel.setLayout(new GridLayout(2, 1));
 
+            //Tilføjer en label og en button til Test Panel
         clicks = new JLabel("0");
         Font titelFont = clicks.getFont().deriveFont(30f);
         clicks.setFont(titelFont);
@@ -73,12 +79,27 @@ public class GUI
         clickerButton.addActionListener(e -> {updateClicks();});
         testPanel.add(clickerButton);
 
-        contentPane.add(testPanel, BorderLayout.CENTER);
+        //Tilføjer Test Panel ind i Main Panel
+        mainPanel.add(testPanel);
+
+            //----- Second Panel -----
+        JPanel secondPanel = new JPanel();
+        secondPanel.setLayout(new GridLayout(1,1));
+        //Tilføjer Second Panel ind i Main Panel
+        mainPanel.add(secondPanel);
+
+            //----- Third Panel -----
+        JPanel thirdPanel = new JPanel();
+        thirdPanel.setLayout(new GridLayout(1,1));
+        //Tilføjer Third Panel ind i Main Panel
+        mainPanel.add(thirdPanel);
+
+        contentPane.add(mainPanel, BorderLayout.CENTER);
 
         frame.pack();
 
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setMinimumSize(new Dimension(200,300));
+        frame.setMinimumSize(new Dimension(1500,790));
         frame.setLocation(d.width/2 - frame.getWidth()/2, d.height/2 - frame.getHeight()/2);
         frame.setVisible(true);
     }
