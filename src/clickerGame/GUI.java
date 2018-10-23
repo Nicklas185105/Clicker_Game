@@ -63,35 +63,42 @@ public class GUI
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(1,3));
             //----- Test Panel(ændre navn) -----
-                //Bliver indsættet ind i Main Panel, på første "row"
-        JPanel testPanel = new JPanel();
-        testPanel.setLayout(new GridLayout(2, 1));
+            //Bliver indsættet ind i Main Panel, på første "row"
+            JPanel testPanel = new JPanel();
+            testPanel.setLayout(new GridLayout(2, 1));
 
             //Tilføjer en label og en button til Test Panel
-        clicks = new JLabel("0");
-        Font titelFont = clicks.getFont().deriveFont(30f);
-        clicks.setFont(titelFont);
-        clicks.setHorizontalAlignment(JLabel.CENTER);
-        clicks.setVerticalAlignment(JLabel.CENTER);
-        testPanel.add(clicks);
+            clicks = new JLabel("0");
+            Font titelFont = clicks.getFont().deriveFont(30f);
+            clicks.setFont(titelFont);
+            clicks.setHorizontalAlignment(JLabel.CENTER);
+            clicks.setVerticalAlignment(JLabel.CENTER);
+            testPanel.add(clicks);
 
-        JButton clickerButton = new JButton("Player Click");
-        clickerButton.addActionListener(e -> {updateClicks();});
-        testPanel.add(clickerButton);
+                //----- Button Panel -----
+                JPanel buttonPanel = new JPanel();
+                buttonPanel.setLayout(new GridLayout(3,3));
+
+                //Tilføjer Clicker Button ind i Button Panel, så den står et pænere sted
+                JButton clickerButton = new JButton("Player Click");
+                clickerButton.addActionListener(e -> {updateClicks();});
+                testPanel.add(clickerButton);
 
         //Tilføjer Test Panel ind i Main Panel
         mainPanel.add(testPanel);
 
             //----- Second Panel -----
-        JPanel secondPanel = new JPanel();
-        secondPanel.setLayout(new GridLayout(1,1));
+            JPanel secondPanel = new JPanel();
+            secondPanel.setLayout(new GridLayout(1,1));
+
         //Tilføjer Second Panel ind i Main Panel
         mainPanel.add(secondPanel);
 
             //----- Third Panel -----
-        JPanel thirdPanel = new JPanel();
-        thirdPanel.setLayout(new GridLayout(1,1));
-        //Tilføjer Third Panel ind i Main Panel
+            JPanel thirdPanel = new JPanel();
+            thirdPanel.setLayout(new GridLayout(1,1));
+
+            //Tilføjer Third Panel ind i Main Panel
         mainPanel.add(thirdPanel);
 
         contentPane.add(mainPanel, BorderLayout.CENTER);
