@@ -16,6 +16,9 @@ public class GUI
 {
     //This is where I import JLabels.
     private JLabel clicks;
+    private JLabel clickPowerLabel;
+    private JLabel clickPowerCostLabel;
+    private JLabel clickPowerLevelLabel;
 
     //Here I'm making my variables
     private int totalClicks = 0;
@@ -33,8 +36,9 @@ public class GUI
      */
     private GUI()
     {
-        makeFrame();
+        totalClicks = 999999999;
         new clickerGame.Clicker();
+        makeFrame();
     }
 
     /**
@@ -42,8 +46,21 @@ public class GUI
      */
     private void updateClicks()
     {
-        totalClicks += clickerGame.Clicker.playerClicks;
+        totalClicks += Clicker.playerClicks;
         clicks.setText(Integer.toString(totalClicks));
+    }
+
+    private void updateClickPowerLabel()
+    {
+        if(totalClicks >= Clicker.clickPowerCost && Clicker.clickPowerLevel <= 99)
+        {
+            totalClicks = totalClicks - Clicker.clickPowerCost;
+            clicks.setText(Integer.toString(totalClicks));
+            Clicker.clickPower();
+            clickPowerLabel.setText("Click Power = " + Clicker.playerClicks);
+            clickPowerCostLabel.setText("Click Power Cost = " + Clicker.clickPowerCost);
+            clickPowerLevelLabel.setText("Level = " + Clicker.clickPowerLevel + " / 100");
+        }
     }
 
     /**
@@ -51,7 +68,8 @@ public class GUI
      */
     private void makeFrame()
     {
-        JFrame frame = new JFrame("clickerGame.Clicker Game");
+        JFrame frame = new JFrame("Clicker Game");
+        frame.setUndecorated(true);
         JPanel contentPane = (JPanel)frame.getContentPane();
         contentPane.setBorder(new EmptyBorder(1, 60, 1, 60));
 
@@ -64,8 +82,8 @@ public class GUI
         mainPanel.setLayout(new GridLayout(1,3));
             //----- Test Panel(ændre navn) -----
             //Bliver indsættet ind i Main Panel, på første "row"
-            JPanel testPanel = new JPanel();
-            testPanel.setLayout(new GridLayout(2, 1));
+            JPanel firstPanel = new JPanel();
+            firstPanel.setLayout(new GridLayout(2, 1));
 
             //Tilføjer en label og en button til Test Panel
             clicks = new JLabel("0");
@@ -73,7 +91,7 @@ public class GUI
             clicks.setFont(titelFont);
             clicks.setHorizontalAlignment(JLabel.CENTER);
             clicks.setVerticalAlignment(JLabel.CENTER);
-            testPanel.add(clicks);
+            firstPanel.add(clicks);
 
                 //----- Button Panel -----
                 JPanel buttonPanel = new JPanel();
@@ -82,10 +100,10 @@ public class GUI
                 //Tilføjer Clicker Button ind i Button Panel, så den står et pænere sted
                 JButton clickerButton = new JButton("Player Click");
                 clickerButton.addActionListener(e -> {updateClicks();});
-                testPanel.add(clickerButton);
+                firstPanel.add(clickerButton);
 
         //Tilføjer Test Panel ind i Main Panel
-        mainPanel.add(testPanel);
+        mainPanel.add(firstPanel);
 
             //----- Second Panel -----
             JPanel secondPanel = new JPanel();
@@ -98,6 +116,39 @@ public class GUI
             JPanel thirdPanel = new JPanel();
             thirdPanel.setLayout(new GridLayout(1,1));
 
+                //----- Click Power Panel -----
+                JPanel clickPowerPanel = new JPanel();
+                clickPowerPanel.setLayout(new GridLayout(1,3));
+
+                JButton clickPowerButton = new JButton("Upgrade Click Power");
+                clickPowerButton.addActionListener(e -> {updateClickPowerLabel();});
+                clickPowerPanel.add(clickPowerButton);
+
+                    //----- Click Power Labels -----
+                    JPanel clickPowerLabelsPanel = new JPanel();
+                    clickPowerLabelsPanel.setLayout(new GridLayout(2,1));
+
+                    clickPowerLabel = new JLabel("Click Power = " + Clicker.playerClicks);
+                    clickPowerLabel.setHorizontalAlignment(JLabel.CENTER);
+                    clickPowerLabel.setVerticalAlignment(JLabel.CENTER);
+                    clickPowerLabelsPanel.add(clickPowerLabel);
+
+                    clickPowerLevelLabel = new JLabel("Level = " + Clicker.clickPowerLevel + " / 100");
+                    clickPowerLevelLabel.setHorizontalAlignment(JLabel.CENTER);
+                    clickPowerLevelLabel.setVerticalAlignment(JLabel.CENTER);
+                    clickPowerLabelsPanel.add(clickPowerLevelLabel);
+
+                    //Tilføjer Click Power Labels Panel ind i Click Power Panel
+                    clickPowerPanel.add(clickPowerLabelsPanel);
+
+                clickPowerCostLabel = new JLabel("Click Power Cost = " + Clicker.clickPowerCost);
+                clickPowerCostLabel.setHorizontalAlignment(JLabel.CENTER);
+                clickPowerCostLabel.setVerticalAlignment(JLabel.CENTER);
+                clickPowerPanel.add(clickPowerCostLabel);
+
+                //Tilføjer Click Power Panel ind i Third Panel
+                thirdPanel.add(clickPowerPanel);
+
             //Tilføjer Third Panel ind i Main Panel
         mainPanel.add(thirdPanel);
 
@@ -105,9 +156,7 @@ public class GUI
 
         frame.pack();
 
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setMinimumSize(new Dimension(1500,790));
-        frame.setLocation(d.width/2 - frame.getWidth()/2, d.height/2 - frame.getHeight()/2);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
     }
 

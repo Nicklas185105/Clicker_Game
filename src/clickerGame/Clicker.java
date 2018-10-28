@@ -9,14 +9,18 @@ package clickerGame;
 public class Clicker
 {
     //I will start by making variables.
-    public static int playerClicks = 1;
+    public static int playerClicks;
+    public static int clickPowerCost;
+    public static int clickPowerLevel;
 
     /**
      * This is where
      */
     public Clicker()
     {
-
+        playerClicks = 1;
+        clickPowerCost = 10;
+        clickPowerLevel = 0;
     }
 
     /**
@@ -26,6 +30,8 @@ public class Clicker
     public static void clickPower()
     {
         playerClicks = Math.toIntExact(Math.round((playerClicks + 1) * 1.05));
+        clickPowerCost = Math.toIntExact(Math.round((clickPowerCost + 10)* 1.1));
+        clickPowerLevel++;
     }
 
 
@@ -36,7 +42,7 @@ public class Clicker
     {
         for(int i = 0; i < 100; i++){
             clickPower();
-            System.out.println(playerClicks);
+            System.out.println("Player Clicks: " + playerClicks + " Player Clicks Cost: " + clickPowerCost);
         }
     }
 }
