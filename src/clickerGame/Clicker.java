@@ -9,7 +9,7 @@ package clickerGame;
 public class Clicker
 {
     //I will start by making variables.
-    public final static int playerClicks = 1;
+    public static int playerClicks = 1;
 
     /**
      * This is where
@@ -20,19 +20,23 @@ public class Clicker
     }
 
     /**
-     * This is where I record the clicks that is made.
+     * This is where the first upgrade is made.
+     *This upgrade is for upgrading the click power.
      */
-    public void clicks()
+    public static void clickPower()
     {
-
+        playerClicks = Math.toIntExact(Math.round((playerClicks + 1) * 1.05));
     }
 
 
     /**
      * For testing
      */
-    /*public static void main (String[] args)
+    public static void main (String[] args)
     {
-        new clickerGame.Clicker();
-    }*/
+        for(int i = 0; i < 100; i++){
+            clickPower();
+            System.out.println(playerClicks);
+        }
+    }
 }
