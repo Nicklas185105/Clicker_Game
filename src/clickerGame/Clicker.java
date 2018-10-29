@@ -9,12 +9,21 @@ package clickerGame;
 public class Clicker
 {
     //I will start by making variables.
+    /**
+     * This is the variable that defines the worth of the player click.
+     */
     public static int playerClicks;
+    /**
+     * This is the variable that defines the cost of the Click Power upgrade.
+     */
     public static int clickPowerCost;
+    /**
+     * This is the variable that defines the level of the Click Power upgrade.
+     */
     public static int clickPowerLevel;
 
     /**
-     * This is where
+     * This is where we begin by giving our integer variables a value.
      */
     public Clicker()
     {
@@ -25,7 +34,7 @@ public class Clicker
 
     /**
      * This is where the first upgrade is made.
-     *This upgrade is for upgrading the click power.
+     * This upgrade is for upgrading the click power.
      */
     public static void clickPower()
     {
@@ -36,7 +45,7 @@ public class Clicker
 
 
     /**
-     * For testing
+     * For testing the new things we implement in this class.
      */
     public static void main (String[] args)
     {
