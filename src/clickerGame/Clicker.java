@@ -9,6 +9,7 @@ package clickerGame;
 public class Clicker
 {
     //I will start by making variables.
+    //----- Player Clicks and Upgrades -----
     /**
      * This is the variable that defines the worth of the player click.
      */
@@ -22,19 +23,28 @@ public class Clicker
      */
     public static int clickPowerLevel;
 
+    //----- Arrow Clicker -----
+    public static int arrowClickPower;
+    public static int arrowClickerAmount;
+    public static int arrowClickerCost;
+
     /**
      * This is where we begin by giving our integer variables a value.
+     * @since 1.0.1
      */
     public Clicker()
     {
         playerClicks = 1;
         clickPowerCost = 10;
         clickPowerLevel = 0;
+        arrowClickPower = 1;
+        arrowClickerAmount = 0;
+        arrowClickerCost = 15;
     }
 
     /**
-     * This is where the first upgrade is made.
      * This upgrade is for upgrading the click power.
+     * @since 1.0.1
      */
     public static void clickPower()
     {
@@ -43,15 +53,27 @@ public class Clicker
         clickPowerLevel++;
     }
 
+    /**
+     * This is where we update the amount of Arrow Clickers, the player has.
+     * The cost of the Arrow Clicker is updated as well.
+     * @since 1.0.1
+     */
+    public static void arrowClicker()
+    {
+        arrowClickerAmount++;
+        arrowClickerCost = Math.toIntExact(Math.round(arrowClickerCost * 1.1));
+    }
 
     /**
      * For testing the new things we implement in this class.
+     * @since 1.0.1
      */
     public static void main (String[] args)
     {
+        new Clicker();
         for(int i = 0; i < 100; i++){
-            clickPower();
-            System.out.println("Player Clicks: " + playerClicks + " Player Clicks Cost: " + clickPowerCost);
+            arrowClicker();
+            System.out.println("Arrow Clicker Amount: " + arrowClickerAmount + " Arrow Clicker Cost: " + arrowClickerCost);
         }
     }
 }
