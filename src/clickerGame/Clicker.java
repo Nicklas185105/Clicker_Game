@@ -1,7 +1,7 @@
 package clickerGame;
 
 /**
- * This is where I make the core of the game.
+ * This is where I make the core of the game, like upgrades and Auto Clicker Towers.
  *
  * @author Nicklas Lydersen
  * @version 1.0.1
@@ -11,22 +11,31 @@ public class Clicker
     //I will start by making variables.
     //----- Player Clicks and Upgrades -----
     /**
-     * This is the variable that defines the worth of the player click.
+     * This defines the worth of the player click.
      */
-    public static int playerClicks;
+    public static long playerClicks;
     /**
-     * This is the variable that defines the cost of the Click Power upgrade.
+     * This defines the cost of the Click Power upgrade.
      */
     public static int clickPowerCost;
     /**
-     * This is the variable that defines the level of the Click Power upgrade.
+     * This defines the level of the Click Power upgrade.
      */
     public static int clickPowerLevel;
 
     //----- Arrow Clicker -----
+    /**
+     * This defines the Arrow Clickers Power.
+     */
     public static int arrowClickPower;
+    /**
+     * This defines the amount the player has of Arrow Clicker.
+     */
     public static int arrowClickerAmount;
-    public static int arrowClickerCost;
+    /**
+     * This defines the cost of the Arrow Clicker.
+     */
+    public static long arrowClickerCost;
 
     /**
      * This is where we begin by giving our integer variables a value.
@@ -34,12 +43,12 @@ public class Clicker
      */
     public Clicker()
     {
-        playerClicks = 1;
+        playerClicks = 1L;
         clickPowerCost = 10;
         clickPowerLevel = 0;
         arrowClickPower = 1;
         arrowClickerAmount = 0;
-        arrowClickerCost = 15;
+        arrowClickerCost = 15L;
     }
 
     /**
@@ -48,7 +57,7 @@ public class Clicker
      */
     public static void clickPower()
     {
-        playerClicks = Math.toIntExact(Math.round((playerClicks + 1) * 1.05));
+        playerClicks = Math.toIntExact(Math.round((playerClicks + 1L) * 1.05));
         clickPowerCost = Math.toIntExact(Math.round((clickPowerCost + 10)* 1.1));
         clickPowerLevel++;
     }
@@ -61,7 +70,7 @@ public class Clicker
     public static void arrowClicker()
     {
         arrowClickerAmount++;
-        arrowClickerCost = Math.toIntExact(Math.round(arrowClickerCost * 1.1));
+        arrowClickerCost = Math.round(arrowClickerCost * 1.1);
     }
 
     /**
@@ -72,8 +81,8 @@ public class Clicker
     {
         new Clicker();
         for(int i = 0; i < 100; i++){
-            arrowClicker();
-            System.out.println("Arrow Clicker Amount: " + arrowClickerAmount + " Arrow Clicker Cost: " + arrowClickerCost);
+            clickPower();
+            System.out.println("Click Power Level " + clickPowerLevel + " Click Power Cost " + clickPowerCost);
         }
     }
 }

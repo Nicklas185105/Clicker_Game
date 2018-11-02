@@ -1,12 +1,10 @@
 package clickerGame;
 
 //Importing different packages.
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
 
 /**
  * This is the class where I build the GUI for the game.
@@ -17,8 +15,6 @@ import java.io.File;
 public class GUI
 {
     //This is where I import JLabels.
-    private JButton clickerButton;
-
     //----- Clicks Labels -----
     private JLabel clicks;
     private JLabel clickPowerLabel;
@@ -55,20 +51,16 @@ public class GUI
      */
     private GUI()
     {
-        /*File imageCheck = new File("resources/mouse_cursor.png");
-        if(imageCheck.exists())
-        {
-            System.out.println("Image file found");
-        }
-        else
-        {
-            System.out.println("Image file not found");
-        }*/
-        //totalClicks = 999999999;
+        //totalClicks = 999998L;
         new clickerGame.Clicker();
+        //Clicker.playerClicks = 981911;
         makeFrame();
     }
 
+    /**
+     * This is used for when I need the program to sleep different places.
+     * @param n Is the integer for how long the program needs to sleep. n = 1000 <=> 1 second
+     */
     private void sleep(int n)
     {
         try
@@ -90,10 +82,34 @@ public class GUI
     private void updateClicks(boolean TF)
     {
         if (TF) {
-            //loadImage(clickerButton,"resources/cookie1.png");
+
             totalClicks += Clicker.playerClicks;
         }
-        clicks.setText(Integer.toString(Math.toIntExact(totalClicks)));
+        System.out.println(totalClicks);
+        if(totalClicks < 1000000L)
+        {
+            clicks.setText(Integer.toString(Math.toIntExact(totalClicks)));
+        }
+        else if (totalClicks > 1000000L && totalClicks < 1000000000L)
+        {
+            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000L)*1000D)/1000D) + " Million");
+        }
+        else if (totalClicks >= 1000000000L && totalClicks < 1000000000000L)
+        {
+            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000000L)*1000D)/1000D) + " Billion");
+        }
+        else if (totalClicks >= 1000000000000L && totalClicks < 1000000000000000L)
+        {
+            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000000000L)*1000D)/1000D) + " Trillion");
+        }
+        else if (totalClicks >= 1000000000000000L && totalClicks < 1000000000000000000L)
+        {
+            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000000000000L)*1000D)/1000D) + "  Quadrillion");
+        }
+        else if (totalClicks >= 1000000000000000000L /*&& totalClicks < 1000000000000000000000L*/)
+        {
+            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000000000000000L)*1000D)/1000D) + " Quintillion");
+        }
     }
 
     /**
@@ -109,8 +125,19 @@ public class GUI
             updateClicks(false);
             Clicker.clickPower();
             clickPowerLabel.setText("Click Power = " + Clicker.playerClicks);
-            clickPowerCostLabel.setText("Click Power Cost = " + Clicker.clickPowerCost);
             clickPowerLevelLabel.setText("Level = " + Clicker.clickPowerLevel + " / 100");
+            if(Clicker.clickPowerCost < 1000000)
+            {
+                clickPowerCostLabel.setText("Click Power Cost = " + Integer.toString(Math.toIntExact(Clicker.clickPowerCost)));
+            }
+            else if (Clicker.clickPowerCost > 1000000 && Clicker.clickPowerCost < 1653669)
+            {
+                clickPowerCostLabel.setText("Click Power Cost = " + Double.toString((double) Math.round((Clicker.clickPowerCost / 1000000d) * 1000d) / 1000d) + " Million");
+            }
+            else
+            {
+                clickPowerCostLabel.setText(" Click Power Cost = Level Maxed");
+            }
         }
     }
 
@@ -127,7 +154,30 @@ public class GUI
             Clicker.arrowClicker();
             arrowClickerPowerLabel.setText("AC Power = " + Clicker.arrowClickPower);
             arrowClickerAmountLabel.setText("AC Amount = " + Clicker.arrowClickerAmount);
-            arrowClickerCostLabel.setText("AC Cost = " + Clicker.arrowClickerCost);
+            if(Clicker.arrowClickerCost < 1000000L)
+            {
+                arrowClickerCostLabel.setText("AC Cost = " + Integer.toString(Math.toIntExact(Clicker.arrowClickerCost)));
+            }
+            else if (Clicker.arrowClickerCost > 1000000L && Clicker.arrowClickerCost < 1000000000L)
+            {
+                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000L)*1000D)/1000D) + " Million");
+            }
+            else if (Clicker.arrowClickerCost >= 1000000000L && Clicker.arrowClickerCost < 1000000000000L)
+            {
+                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000000L)*1000D)/1000D) + " Billion");
+            }
+            else if (Clicker.arrowClickerCost >= 1000000000000L && Clicker.arrowClickerCost < 1000000000000000L)
+            {
+                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000000000L)*1000D)/1000D) + " Trillion");
+            }
+            else if (Clicker.arrowClickerCost >= 1000000000000000L && Clicker.arrowClickerCost < 1000000000000000000L)
+            {
+                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000000000000L)*1000D)/1000D) + "  Quadrillion");
+            }
+            else if (Clicker.arrowClickerCost >= 1000000000000000000L /*&& Clicker.arrowClickerCost < 1000000000000000000000L*/)
+            {
+                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000000000000000L)*1000D)/1000D) + " Quintillion");
+            }
         }
     }
 
@@ -137,7 +187,6 @@ public class GUI
      */
     private void autoClickerLoop()
     {
-        //System.out.println("Auto Clicker Loop has begun");
         while (gameRunning)
         {
             sleep(1000);
@@ -145,12 +194,16 @@ public class GUI
             {
                 totalClicks = totalClicks + (Clicker.arrowClickPower * Clicker.arrowClickerAmount);
                 updateClicks(false);
-                //sleep();
-                //System.out.println("+1");
             }
         }
     }
 
+    /**
+     * This is where I load in the icons for the buttons. I'm using this as a shortcut, instead of writing this multiple times.
+     * @param button Is the desired button that needs an icon.
+     * @param path Is the path directory of the image, that is the desired icon for the button.
+     * @since 1.0.1
+     */
     private void loadImage(JButton button, String path)
     {
         try
@@ -209,9 +262,9 @@ public class GUI
                 buttonPanel.setLayout(new GridLayout(3,3));
 
                 //Tilføjer Clicker Button ind i Button Panel, så den står et pænere sted
-                clickerButton = new JButton();
+                JButton clickerButton = new JButton();
                 loadImage(clickerButton,"resources/cookie.png");
-                clickerButton.addActionListener(e -> {updateClicks(true);});
+                clickerButton.addActionListener(e -> updateClicks(true));
                 firstPanel.add(clickerButton);
 
         //Tilføjer First Panel ind i Main Panel
@@ -233,7 +286,7 @@ public class GUI
                 clickPowerPanel.setLayout(new GridLayout(1,3));
 
                 JButton clickPowerButton = new JButton("Upgrade Click Power");
-                clickPowerButton.addActionListener(e -> {updateClickPowerLabel();});
+                clickPowerButton.addActionListener(e -> updateClickPowerLabel());
                 clickPowerPanel.add(clickPowerButton);
 
                     //----- Click Power Labels Panel -----
@@ -266,7 +319,7 @@ public class GUI
                 arrowClickerPanel.setLayout(new GridLayout(1,3));
 
                 JButton arrowClickerButton = new JButton("Arrow Clicker");
-                arrowClickerButton.addActionListener(e -> {updateArrowClickerLabel();});
+                arrowClickerButton.addActionListener(e -> updateArrowClickerLabel());
                 arrowClickerPanel.add(arrowClickerButton);
 
                     //----- Arrow Clicker Labels Panel -----
