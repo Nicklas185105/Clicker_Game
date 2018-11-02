@@ -1,10 +1,12 @@
 package clickerGame;
 
 //Importing different packages.
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 /**
  * This is the class where I build the GUI for the game.
@@ -15,6 +17,8 @@ import java.awt.event.KeyEvent;
 public class GUI
 {
     //This is where I import JLabels.
+    private JButton clickerButton;
+
     //----- Clicks Labels -----
     private JLabel clicks;
     private JLabel clickPowerLabel;
@@ -51,20 +55,29 @@ public class GUI
      */
     private GUI()
     {
+        /*File imageCheck = new File("resources/mouse_cursor.png");
+        if(imageCheck.exists())
+        {
+            System.out.println("Image file found");
+        }
+        else
+        {
+            System.out.println("Image file not found");
+        }*/
         //totalClicks = 999999999;
         new clickerGame.Clicker();
         makeFrame();
     }
 
-    private void sleep()
+    private void sleep(int n)
     {
         try
         {
-            Thread.sleep(1000);
+            Thread.sleep(n);
         }
         catch (InterruptedException ex)
         {
-
+            ex.printStackTrace();
         }
     }
 
@@ -77,6 +90,7 @@ public class GUI
     private void updateClicks(boolean TF)
     {
         if (TF) {
+            //loadImage(clickerButton,"resources/cookie1.png");
             totalClicks += Clicker.playerClicks;
         }
         clicks.setText(Integer.toString(Math.toIntExact(totalClicks)));
@@ -123,18 +137,34 @@ public class GUI
      */
     private void autoClickerLoop()
     {
-        System.out.println("Auto Clicker Loop has begun");
+        //System.out.println("Auto Clicker Loop has begun");
         while (gameRunning)
         {
-            sleep();
+            sleep(1000);
             if(Clicker.arrowClickerAmount != 0)
             {
                 totalClicks = totalClicks + (Clicker.arrowClickPower * Clicker.arrowClickerAmount);
                 updateClicks(false);
                 //sleep();
-                System.out.println("+1");
+                //System.out.println("+1");
             }
         }
+    }
+
+    private void loadImage(JButton button, String path)
+    {
+        try
+        {
+            button.setIcon(new ImageIcon(path));
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
+        button.setFocusPainted(false);
+        button.setOpaque(false);
     }
 
     /**
@@ -179,7 +209,8 @@ public class GUI
                 buttonPanel.setLayout(new GridLayout(3,3));
 
                 //Tilføjer Clicker Button ind i Button Panel, så den står et pænere sted
-                JButton clickerButton = new JButton("Player Click");
+                clickerButton = new JButton();
+                loadImage(clickerButton,"resources/cookie.png");
                 clickerButton.addActionListener(e -> {updateClicks(true);});
                 firstPanel.add(clickerButton);
 
