@@ -11,7 +11,9 @@ import java.math.RoundingMode;
 
 /**
  * This is the class where I build the GUI for the game.
- * @since 1.0.1
+ *
+ * @author Nicklas Lydersen
+ * @version 1.0.1
  */
 public class GUI
 {
@@ -43,7 +45,7 @@ public class GUI
      */
     public GUI()
     {
-        totalClicks = totalClicks.add(new BigInteger("9999999999999"));
+        totalClicks = totalClicks.add(new BigInteger("999998"));
         new clickerGame.Clicker();
         //Clicker.playerClicks = 981911;
         makeFrame();
