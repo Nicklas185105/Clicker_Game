@@ -1,5 +1,9 @@
 package clickerGame;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.RoundingMode;
+
 /**
  * This is where I make the core of the game, like upgrades and Auto Clicker Towers.
  *
@@ -13,7 +17,7 @@ public class Clicker
     /**
      * This defines the worth of the player click.
      */
-    public static long playerClicks;
+    public static BigInteger playerClicks;
     /**
      * This defines the cost of the Click Power upgrade.
      */
@@ -35,7 +39,7 @@ public class Clicker
     /**
      * This defines the cost of the Arrow Clicker.
      */
-    public static long arrowClickerCost;
+    public static BigInteger arrowClickerCost;
 
     /**
      * This is where we begin by giving our integer variables a value.
@@ -43,12 +47,12 @@ public class Clicker
      */
     public Clicker()
     {
-        playerClicks = 1L;
+        playerClicks = new BigInteger("1");
         clickPowerCost = 10;
         clickPowerLevel = 0;
         arrowClickPower = 1;
         arrowClickerAmount = 0;
-        arrowClickerCost = 15L;
+        arrowClickerCost = new BigInteger("15");
     }
 
     /**
@@ -57,7 +61,9 @@ public class Clicker
      */
     public static void clickPower()
     {
-        playerClicks = Math.toIntExact(Math.round((playerClicks + 1L) * 1.05));
+        BigInteger n = playerClicks.add(new BigInteger("1"));
+        playerClicks = new BigDecimal(n).multiply(new BigDecimal("1.05")).setScale(0 , RoundingMode.HALF_UP).toBigInteger();
+        //playerClicks = Math.toIntExact(Math.round((playerClicks + 1L) * 1.05));
         clickPowerCost = Math.toIntExact(Math.round((clickPowerCost + 10)* 1.1));
         clickPowerLevel++;
     }
@@ -70,7 +76,7 @@ public class Clicker
     public static void arrowClicker()
     {
         arrowClickerAmount++;
-        arrowClickerCost = Math.round(arrowClickerCost * 1.1);
+        arrowClickerCost = new BigDecimal(arrowClickerCost).multiply(new BigDecimal("1.25")).setScale(0, RoundingMode.HALF_UP).toBigInteger();
     }
 
     /**

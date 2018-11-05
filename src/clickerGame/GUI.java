@@ -5,6 +5,9 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.RoundingMode;
 
 /**
  * This is the class where I build the GUI for the game.
@@ -30,7 +33,7 @@ public class GUI
     /**
      * This integer is holding the amount of clicks the player have.
      */
-    private long totalClicks;
+    private BigInteger totalClicks = new BigInteger("0");
     /**
      * Boolean for the Auto Clicker Loop, so it can run when the game is running.
      */
@@ -51,7 +54,7 @@ public class GUI
      */
     private GUI()
     {
-        //totalClicks = 999998L;
+        totalClicks = totalClicks.add(new BigInteger("9999999999999"));
         new clickerGame.Clicker();
         //Clicker.playerClicks = 981911;
         makeFrame();
@@ -83,32 +86,32 @@ public class GUI
     {
         if (TF) {
 
-            totalClicks += Clicker.playerClicks;
+            totalClicks = totalClicks.add(Clicker.playerClicks);
         }
         System.out.println(totalClicks);
-        if(totalClicks < 1000000L)
+        if(totalClicks.compareTo(new BigInteger("1000000")) < 0)
         {
-            clicks.setText(Integer.toString(Math.toIntExact(totalClicks)));
+            clicks.setText(totalClicks.toString());
         }
-        else if (totalClicks > 1000000L && totalClicks < 1000000000L)
+        else if (totalClicks.compareTo(new BigInteger("1000000")) >= 0 && totalClicks.compareTo(new BigInteger("1000000000")) < 0)
         {
-            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000L)*1000D)/1000D) + " Million");
+            clicks.setText(new BigDecimal(totalClicks).divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
         }
-        else if (totalClicks >= 1000000000L && totalClicks < 1000000000000L)
+        else if (totalClicks.compareTo(new BigInteger("1000000000")) >= 0 && totalClicks.compareTo(new BigInteger("1000000000000")) < 0)
         {
-            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000000L)*1000D)/1000D) + " Billion");
+            clicks.setText(new BigDecimal(totalClicks).divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
         }
-        else if (totalClicks >= 1000000000000L && totalClicks < 1000000000000000L)
+        else if (totalClicks.compareTo(new BigInteger("1000000000000")) >= 0 && totalClicks.compareTo(new BigInteger("1000000000000000")) < 0)
         {
-            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000000000L)*1000D)/1000D) + " Trillion");
+            clicks.setText(new BigDecimal(totalClicks).divide(new BigDecimal("1000000000000"), 3, RoundingMode.HALF_EVEN) + " Trillion");
         }
-        else if (totalClicks >= 1000000000000000L && totalClicks < 1000000000000000000L)
+        else if (totalClicks.compareTo(new BigInteger("1000000000000000")) >= 0 && totalClicks.compareTo(new BigInteger("1000000000000000000")) < 0)
         {
-            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000000000000L)*1000D)/1000D) + "  Quadrillion");
+            clicks.setText(new BigDecimal(totalClicks).divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + "  Quadrillion");
         }
-        else if (totalClicks >= 1000000000000000000L /*&& totalClicks < 1000000000000000000000L*/)
+        else if (totalClicks.compareTo(new BigInteger("1000000000000000000")) >= 0 && totalClicks.compareTo(new BigInteger("1000000000000000000000")) < 0)
         {
-            clicks.setText(Double.toString((double)Math.round(((double)totalClicks/1000000000000000000L)*1000D)/1000D) + " Quintillion");
+            clicks.setText(new BigDecimal(totalClicks).divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + " Quintillion");
         }
     }
 
@@ -119,9 +122,9 @@ public class GUI
      */
     private void updateClickPowerLabel()
     {
-        if(totalClicks >= Clicker.clickPowerCost && Clicker.clickPowerLevel <= 99)
+        if(totalClicks.compareTo(BigInteger.valueOf(Clicker.clickPowerCost)) >= 0 && Clicker.clickPowerLevel <= 99)
         {
-            totalClicks = totalClicks - Clicker.clickPowerCost;
+            totalClicks = totalClicks.add(BigInteger.valueOf(Clicker.clickPowerCost).negate());
             updateClicks(false);
             Clicker.clickPower();
             clickPowerLabel.setText("Click Power = " + Clicker.playerClicks);
@@ -147,36 +150,36 @@ public class GUI
      */
     private void updateArrowClickerLabel()
     {
-        if(totalClicks >= Clicker.arrowClickerCost)
+        if(totalClicks.compareTo(Clicker.arrowClickerCost) >= 0)
         {
-            totalClicks = totalClicks - Clicker.arrowClickerCost;
+            totalClicks = totalClicks.add(Clicker.arrowClickerCost.negate());
             updateClicks(false);
             Clicker.arrowClicker();
             arrowClickerPowerLabel.setText("AC Power = " + Clicker.arrowClickPower);
             arrowClickerAmountLabel.setText("AC Amount = " + Clicker.arrowClickerAmount);
-            if(Clicker.arrowClickerCost < 1000000L)
+            if(Clicker.arrowClickerCost.compareTo(new BigInteger("1000000")) < 0)
             {
-                arrowClickerCostLabel.setText("AC Cost = " + Integer.toString(Math.toIntExact(Clicker.arrowClickerCost)));
+                arrowClickerCostLabel.setText("AC Cost = " + Clicker.arrowClickerCost.toString());
             }
-            else if (Clicker.arrowClickerCost > 1000000L && Clicker.arrowClickerCost < 1000000000L)
+            else if (Clicker.arrowClickerCost.compareTo(new BigInteger("1000000")) >= 0 && Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000")) < 0)
             {
-                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000L)*1000D)/1000D) + " Million");
+                arrowClickerCostLabel.setText("AC Cost = " + new BigDecimal(Clicker.arrowClickerCost).divide(new BigDecimal("1000000"),3, RoundingMode.HALF_EVEN) + " Million");
             }
-            else if (Clicker.arrowClickerCost >= 1000000000L && Clicker.arrowClickerCost < 1000000000000L)
+            else if (Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000")) >= 0 && Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000000")) < 0)
             {
-                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000000L)*1000D)/1000D) + " Billion");
+                arrowClickerCostLabel.setText("AC Cost = " + new BigDecimal(Clicker.arrowClickerCost).divide(new BigDecimal("1000000000"),3, RoundingMode.HALF_EVEN) + " Billion");
             }
-            else if (Clicker.arrowClickerCost >= 1000000000000L && Clicker.arrowClickerCost < 1000000000000000L)
+            else if (Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000000")) >= 0 && Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000000000")) < 0)
             {
-                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000000000L)*1000D)/1000D) + " Trillion");
+                arrowClickerCostLabel.setText("AC Cost = " + new BigDecimal(Clicker.arrowClickerCost).divide(new BigDecimal("1000000000000"),3, RoundingMode.HALF_EVEN) + " Trillion");
             }
-            else if (Clicker.arrowClickerCost >= 1000000000000000L && Clicker.arrowClickerCost < 1000000000000000000L)
+            else if (Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000000000")) >= 0 && Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000000000000")) < 0)
             {
-                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000000000000L)*1000D)/1000D) + "  Quadrillion");
+                arrowClickerCostLabel.setText("AC Cost = " + new BigDecimal(Clicker.arrowClickerCost).divide(new BigDecimal("1000000000000000"),3, RoundingMode.HALF_EVEN) + "  Quadrillion");
             }
-            else if (Clicker.arrowClickerCost >= 1000000000000000000L /*&& Clicker.arrowClickerCost < 1000000000000000000000L*/)
+            else if (Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000000000000")) >= 0 && Clicker.arrowClickerCost.compareTo(new BigInteger("1000000000000000000000")) < 0)
             {
-                arrowClickerCostLabel.setText("AC Cost = " + Double.toString((double)Math.round(((double)Clicker.arrowClickerCost/1000000000000000000L)*1000D)/1000D) + " Quintillion");
+                arrowClickerCostLabel.setText("AC Cost = " + new BigDecimal(Clicker.arrowClickerCost).divide(new BigDecimal("1000000000000000000"),3, RoundingMode.HALF_EVEN) + " Quintillion");
             }
         }
     }
@@ -192,7 +195,7 @@ public class GUI
             sleep(1000);
             if(Clicker.arrowClickerAmount != 0)
             {
-                totalClicks = totalClicks + (Clicker.arrowClickPower * Clicker.arrowClickerAmount);
+                totalClicks = totalClicks.add(BigInteger.valueOf(Clicker.arrowClickPower).multiply(BigInteger.valueOf(Clicker.arrowClickerAmount)));
                 updateClicks(false);
             }
         }
@@ -285,7 +288,8 @@ public class GUI
                 JPanel clickPowerPanel = new JPanel();
                 clickPowerPanel.setLayout(new GridLayout(1,3));
 
-                JButton clickPowerButton = new JButton("Upgrade Click Power");
+                JButton clickPowerButton = new JButton();
+                loadImage(clickPowerButton, "resources/click_power_upgrade.png");
                 clickPowerButton.addActionListener(e -> updateClickPowerLabel());
                 clickPowerPanel.add(clickPowerButton);
 
@@ -318,7 +322,8 @@ public class GUI
                 JPanel arrowClickerPanel = new JPanel();
                 arrowClickerPanel.setLayout(new GridLayout(1,3));
 
-                JButton arrowClickerButton = new JButton("Arrow Clicker");
+                JButton arrowClickerButton = new JButton();
+                loadImage(arrowClickerButton,"resources/arrow_clicker.png");
                 arrowClickerButton.addActionListener(e -> updateArrowClickerLabel());
                 arrowClickerPanel.add(arrowClickerButton);
 
