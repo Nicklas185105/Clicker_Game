@@ -13,7 +13,7 @@ import java.math.RoundingMode;
  * This is the class where I build the GUI for the game.
  *
  * @author Nicklas Lydersen
- * @version 1.0.1
+ * @since 1.0.1
  */
 public class GUI
 {

@@ -8,7 +8,7 @@ import java.math.RoundingMode;
  * This is where I make the core of the game, like upgrades and Auto Clicker Towers.
  *
  * @author Nicklas Lydersen
- * @version 1.0.1
+ * @since 1.0.1
  */
 public class Clicker
 {
