@@ -20,7 +20,7 @@ public class Buildings {
     /**
      * This integer is holding the amount of auto clicks the player has.
      */
-    public BigDecimal totalCookiesPerSecond;
+    public static BigDecimal totalCookiesPerSecond;
 
     //----- Cursor -----
     /**
@@ -54,7 +54,7 @@ public class Buildings {
      * This is used for when I need the program to sleep different places.
      * @param n Is the integer for how long the program needs to sleep. n = 1000 <=> 1 second
      */
-    private void sleep(int n)
+    private static void sleep(int n)
     {
         try
         {
@@ -63,6 +63,20 @@ public class Buildings {
         catch (InterruptedException ex)
         {
             ex.printStackTrace();
+        }
+    }
+
+    /**
+     * This is where the loop for the auto clickers are running all the auto clickers.
+     * @since 1.0.1
+     */
+    public static void cookiesPerSecondLoop()
+    {
+        while (GUI.gameRunning)
+        {
+            sleep(1000);
+            GUI.totalCookies = GUI.totalCookies.add(totalCookiesPerSecond);
+            LabelUpdater.updateCookies(false);
         }
     }
 
@@ -76,10 +90,11 @@ public class Buildings {
      *
      * @since 1.0.2
      */
-    public void setTotalCookiesPerSecond()
+    public static void setTotalCookiesPerSecond()
     {
         //----- Cursor -----
         totalCookiesPerSecond = new BigDecimal(cursorAmount).multiply(cursorPower);
+        System.out.println(totalCookiesPerSecond);
 
         //----- Grandma -----
         //totalCookiesPerSecond = totalCookiesPerSecond.
@@ -98,6 +113,7 @@ public class Buildings {
     public static void cursor()
     {
         cursorAmount++;
-        cursorCost = new BigDecimal(cursorCost).multiply(new BigDecimal("1.25")).setScale(0, RoundingMode.HALF_UP).toBigInteger();
+        cursorCost = new BigDecimal(cursorCost).multiply(new BigDecimal("1.15")).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
     }
 }
