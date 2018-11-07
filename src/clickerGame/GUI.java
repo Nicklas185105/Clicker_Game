@@ -20,6 +20,7 @@ public class GUI
     //This is where I import JLabels.
     //----- Clicks Labels -----
     private JLabel clicks;
+    private JLabel perSecond;
     private JLabel clickPowerLabel;
     private JLabel clickPowerCostLabel;
     private JLabel clickPowerLevelLabel;
@@ -42,6 +43,7 @@ public class GUI
     /**
      * This is where I make the frame, and all the other important things.
      * @since 1.0.1
+     * @
      */
     public GUI()
     {
