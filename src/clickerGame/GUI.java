@@ -3,6 +3,7 @@ package clickerGame;
 //Importing different packages.
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
@@ -73,7 +74,6 @@ public class GUI
         frame.setUndecorated(true);
         JPanel contentPane = (JPanel)frame.getContentPane();
         contentPane.setBorder(new EmptyBorder(1, 60, 1, 60));
-
         contentPane.setLayout(new BorderLayout(12, 12));
 
         makeMenuBar(frame);
@@ -88,6 +88,7 @@ public class GUI
             //----- First Panel -----
             //Bliver indsættet ind i Main Panel, på første "row"
             JPanel firstPanel = new JPanel();
+            firstPanel.setBorder(new LineBorder(Color.black,1,false));
             firstPanel.setLayout(new GridLayout(2, 1));
 
                 //----- Label Panel -----
@@ -118,6 +119,7 @@ public class GUI
 
             //----- Second Panel -----
             JPanel secondPanel = new JPanel();
+            secondPanel.setBorder(new LineBorder(Color.black,1,false));
             secondPanel.setLayout(new GridLayout(1,1));
 
         //Tilføjer Second Panel ind i Main Panel
@@ -125,6 +127,7 @@ public class GUI
 
             //----- Third Panel -----
             JPanel thirdPanel = new JPanel();
+            thirdPanel.setBorder(new LineBorder(Color.black,1,false));
             thirdPanel.setLayout(new GridLayout(2,1));
 
                 //----- Click Power Panel -----
