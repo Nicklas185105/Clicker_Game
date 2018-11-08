@@ -44,27 +44,27 @@ public class LabelUpdater {
         System.out.println(GUI.totalCookies);
         if(GUI.totalCookies.compareTo(new BigDecimal("1000000")) < 0)
         {
-            cookies.setText(GUI.totalCookies.setScale(0, RoundingMode.DOWN).toString());
+            cookies.setText(GUI.totalCookies.setScale(0, RoundingMode.DOWN).toString() + " Cookies");
         }
         else if (GUI.totalCookies.compareTo(new BigDecimal("1000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000")) < 0)
         {
-            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million Cookies");
         }
         else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000")) < 0)
         {
-            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
+            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion Cookies");
         }
         else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000")) < 0)
         {
-            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000"), 3, RoundingMode.HALF_EVEN) + " Trillion");
+            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000"), 3, RoundingMode.HALF_EVEN) + " Trillion Cookies");
         }
         else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000")) < 0)
         {
-            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + "  Quadrillion");
+            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + "  Quadrillion Cookies");
         }
         else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000000")) < 0)
         {
-            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + " Quintillion");
+            cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + " Quintillion Cookies");
         }
     }
 

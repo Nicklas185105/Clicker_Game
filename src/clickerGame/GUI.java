@@ -90,23 +90,28 @@ public class GUI
             JPanel firstPanel = new JPanel();
             firstPanel.setLayout(new GridLayout(2, 1));
 
-            //Tilføjer en label og en button til First Panel
-            LabelUpdater.cookies = new JLabel("0");
-            Font titelFont = LabelUpdater.cookies.getFont().deriveFont(30f);
-            LabelUpdater.cookies.setFont(titelFont);
-            LabelUpdater.cookies.setHorizontalAlignment(JLabel.CENTER);
-            LabelUpdater.cookies.setVerticalAlignment(JLabel.CENTER);
-            firstPanel.add(LabelUpdater.cookies);
+                //----- Label Panel -----
+                JPanel labelPanel = new JPanel();
+                labelPanel.setLayout(new GridLayout(2,1));
 
-                //----- Button Panel -----
-                JPanel buttonPanel = new JPanel();
-                buttonPanel.setLayout(new GridLayout(3,3));
+                LabelUpdater.cookies = new JLabel("0 Cookies");
+                Font titelFont = LabelUpdater.cookies.getFont().deriveFont(30f);
+                LabelUpdater.cookies.setFont(titelFont);
+                LabelUpdater.cookies.setHorizontalAlignment(JLabel.CENTER);
+                LabelUpdater.cookies.setVerticalAlignment(JLabel.BOTTOM);
+                labelPanel.add(LabelUpdater.cookies);
 
-                //Tilføjer Clicker Button ind i Button Panel, så den står et pænere sted
-                JButton clickerButton = new JButton();
-                loadImage(clickerButton,"resources/cookie.png");
-                clickerButton.addActionListener(e -> LabelUpdater.updateCookies(true));
-                firstPanel.add(clickerButton);
+                LabelUpdater.cookiesPerSecond = new JLabel("per second: 0");
+                LabelUpdater.cookiesPerSecond.setHorizontalAlignment(JLabel.CENTER);
+                LabelUpdater.cookiesPerSecond.setVerticalAlignment(JLabel.TOP);
+                labelPanel.add(LabelUpdater.cookiesPerSecond);
+
+            firstPanel.add(labelPanel);
+
+            JButton clickerButton = new JButton();
+            loadImage(clickerButton,"resources/cookie.png");
+            clickerButton.addActionListener(e -> LabelUpdater.updateCookies(true));
+            firstPanel.add(clickerButton);
 
         //Tilføjer First Panel ind i Main Panel
         mainPanel.add(firstPanel);

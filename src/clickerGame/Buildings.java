@@ -98,6 +98,9 @@ public class Buildings {
 
         //----- Grandma -----
         //totalCookiesPerSecond = totalCookiesPerSecond.
+
+        //----- Update cookiesPerSecond Label -----
+        LabelUpdater.cookiesPerSecond.setText("per second: " + totalCookiesPerSecond);
     }
 
     /**
