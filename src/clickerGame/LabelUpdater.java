@@ -25,6 +25,11 @@ public class LabelUpdater {
     public static JLabel cursorAmountLabel;
     public static JLabel cursorCostLabel;
 
+    //----- Grandma Labels -----
+    public static JLabel grandmaPowerLabel;
+    public static JLabel grandmaAmountLabel;
+    public static JLabel grandmaCostLabel;
+
     public LabelUpdater()
     {
 
@@ -133,6 +138,42 @@ public class LabelUpdater {
             else if (Buildings.cursorCost.compareTo(new BigInteger("1000000000000000000")) >= 0 && Buildings.cursorCost.compareTo(new BigInteger("1000000000000000000000")) < 0)
             {
                 cursorCostLabel.setText("Cursor Cost = " + new BigDecimal(Buildings.cursorCost).divide(new BigDecimal("1000000000000000000"),3, RoundingMode.HALF_EVEN) + " Quintillion");
+            }
+        }
+    }
+
+    public static void updateGrandmaLabel()
+    {
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.grandmaCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.grandmaCost.negate()));
+            updateCookies(false);
+            Buildings.grandma();
+            grandmaPowerLabel.setText("Grandma Power = " + Buildings.grandmaPower);
+            grandmaAmountLabel.setText("Grandma Amount = " + Buildings.grandmaAmount);
+            if(Buildings.grandmaCost.compareTo(new BigInteger("1000000")) < 0)
+            {
+                grandmaCostLabel.setText("Grandma Cost = " + Buildings.grandmaCost.toString());
+            }
+            else if(Buildings.grandmaCost.compareTo(new BigInteger("1000000")) >= 0 && Buildings.grandmaCost.compareTo(new BigInteger("1000000000")) < 0)
+            {
+                grandmaCostLabel.setText("Grandma Cost = " + new BigDecimal(Buildings.grandmaCost).divide(new BigDecimal("1000000"),3, RoundingMode.HALF_EVEN) + " Million");
+            }
+            else if (Buildings.grandmaCost.compareTo(new BigInteger("1000000000")) >= 0 && Buildings.grandmaCost.compareTo(new BigInteger("1000000000000")) < 0)
+            {
+                grandmaCostLabel.setText("Grandma Cost = " + new BigDecimal(Buildings.grandmaCost).divide(new BigDecimal("1000000000"),3, RoundingMode.HALF_EVEN) + " Billion");
+            }
+            else if (Buildings.grandmaCost.compareTo(new BigInteger("1000000000000")) >= 0 && Buildings.grandmaCost.compareTo(new BigInteger("1000000000000000")) < 0)
+            {
+                grandmaCostLabel.setText("Grandma Cost = " + new BigDecimal(Buildings.cursorCost).divide(new BigDecimal("1000000000000"),3, RoundingMode.HALF_EVEN) + " Trillion");
+            }
+            else if (Buildings.grandmaCost.compareTo(new BigInteger("1000000000000000")) >= 0 && Buildings.grandmaCost.compareTo(new BigInteger("1000000000000000000")) < 0)
+            {
+                grandmaCostLabel.setText("Grandma Cost = " + new BigDecimal(Buildings.cursorCost).divide(new BigDecimal("1000000000000000"),3, RoundingMode.HALF_EVEN) + "  Quadrillion");
+            }
+            else if (Buildings.grandmaCost.compareTo(new BigInteger("1000000000000000000")) >= 0 && Buildings.grandmaCost.compareTo(new BigInteger("1000000000000000000000")) < 0)
+            {
+                grandmaCostLabel.setText("Grandma Cost = " + new BigDecimal(Buildings.cursorCost).divide(new BigDecimal("1000000000000000000"),3, RoundingMode.HALF_EVEN) + " Quintillion");
             }
         }
     }
