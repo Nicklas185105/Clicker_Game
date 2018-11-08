@@ -9,7 +9,7 @@ import java.math.RoundingMode;
  * This class is responsible for creating the buildings and upgrading them, while keeping track of the total per second.
  *
  * <p>Cursor Building: {@link #cursor()}</p>
- * <p>Grandma Building {@link }</p>
+ * <p>Grandma Building {@link #grandma()}</p>
  * <p></p>
  *
  * @author Nicklas Lydersen
@@ -21,20 +21,26 @@ public class Buildings {
      * This integer is holding the amount of auto clicks the player has.
      */
     public static BigDecimal totalCookiesPerSecond;
+    public static BigDecimal buildingCostMultiplier;
 
     //----- Cursor -----
     /**
-     * This defines the Arrow Clickers Power.
+     * This defines the Cursor Power.
      */
     public static BigDecimal cursorPower;
     /**
-     * This defines the amount the player has of Arrow Clicker.
+     * This defines the amount the player has of Cursor.
      */
     public static int cursorAmount;
     /**
-     * This defines the cost of the Arrow Clicker.
+     * This defines the cost of the Cursor.
      */
     public static BigInteger cursorCost;
+
+    //----- Grandma -----
+    public static BigInteger grandmaPower;
+    public static int grandmaAmount;
+    public static BigInteger grandmaCost;
 
     /**
      *
@@ -43,11 +49,17 @@ public class Buildings {
     public Buildings()
     {
         totalCookiesPerSecond = new BigDecimal("0");
+        buildingCostMultiplier = new BigDecimal("1.15");
 
         //----- Cursor -----
         cursorPower = new BigDecimal("0.1");
         cursorAmount = 0;
         cursorCost = new BigInteger("15");
+
+        //----- Grandma -----
+        grandmaPower = new BigInteger("1");
+        grandmaAmount = 0;
+        grandmaCost = new BigInteger("100");
     }
 
     /**
@@ -97,7 +109,7 @@ public class Buildings {
         System.out.println(totalCookiesPerSecond);
 
         //----- Grandma -----
-        //totalCookiesPerSecond = totalCookiesPerSecond.
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(grandmaAmount)).multiply(new BigDecimal(grandmaPower));
 
         //----- Update cookiesPerSecond Label -----
         LabelUpdater.cookiesPerSecond.setText("per second: " + totalCookiesPerSecond);
@@ -116,7 +128,17 @@ public class Buildings {
     public static void cursor()
     {
         cursorAmount++;
-        cursorCost = new BigDecimal(cursorCost).multiply(new BigDecimal("1.15")).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
+        cursorCost = new BigDecimal(cursorCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    /**
+     *
+     */
+    public static void grandma()
+    {
+        grandmaAmount++;
+        grandmaCost = new BigDecimal(grandmaCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 }
