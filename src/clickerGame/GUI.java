@@ -35,7 +35,7 @@ public class GUI
      */
     public GUI()
     {
-        //totalClicks = totalClicks.add(new BigDecimal("999998"));
+        totalCookies = totalCookies.add(new BigDecimal("999998"));
         new Clicker();
         new Buildings();
         //Clicker.playerClicks = 981911;

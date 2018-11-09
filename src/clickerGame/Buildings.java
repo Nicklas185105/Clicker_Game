@@ -10,7 +10,7 @@ import java.math.RoundingMode;
  *
  * <p>Cursor Building: {@link #cursor()}</p>
  * <p>Grandma Building {@link #grandma()}</p>
- * <p></p>
+ * <p>Farm Building {@link #farm()}</p>
  *
  * @author Nicklas Lydersen
  * @since 1.0.2
@@ -38,9 +38,14 @@ public class Buildings {
     public static BigInteger cursorCost;
 
     //----- Grandma -----
-    public static BigInteger grandmaPower;
+    public static BigDecimal grandmaPower;
     public static int grandmaAmount;
     public static BigInteger grandmaCost;
+
+    //----- Farm -----
+    public static BigDecimal farmPower;
+    public static int farmAmount;
+    public static BigInteger farmCost;
 
     /**
      *
@@ -57,9 +62,14 @@ public class Buildings {
         cursorCost = new BigInteger("15");
 
         //----- Grandma -----
-        grandmaPower = new BigInteger("1");
+        grandmaPower = new BigDecimal("1");
         grandmaAmount = 0;
         grandmaCost = new BigInteger("100");
+
+        //----- Farm -----
+        farmPower = new BigDecimal("8");
+        farmAmount = 0;
+        farmCost = new BigInteger("1100");
     }
 
     /**
@@ -109,20 +119,17 @@ public class Buildings {
         System.out.println(totalCookiesPerSecond);
 
         //----- Grandma -----
-        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(grandmaAmount)).multiply(new BigDecimal(grandmaPower));
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(grandmaAmount).multiply(grandmaPower));
+
+        //----- Farm -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(farmAmount).multiply(farmPower));
 
         //----- Update cookiesPerSecond Label -----
         LabelUpdater.cookiesPerSecond.setText("per second: " + totalCookiesPerSecond);
     }
 
     /**
-     *
      * This is were we change the variables of the Cursor building.
-     *
-     * <p>We are changing the Cursor amount the player has.             Start amount = 0</p>
-     * <p>We are changing the cost of the Cursor.                       Start cost = 15</p>
-     * <p>We will change the power of the Cursor in here as well.       Start power = 0.1</p>
-     *
      * @since 1.0.2
      */
     public static void cursor()
@@ -133,7 +140,8 @@ public class Buildings {
     }
 
     /**
-     *
+     * This is were we change the variables of the Grandma building.
+     * @since 1.0.2
      */
     public static void grandma()
     {
@@ -141,4 +149,16 @@ public class Buildings {
         grandmaCost = new BigDecimal(grandmaCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
+
+    /**
+     * This is were we change the variables of the Farm building.
+     * @since 1.0.2
+     */
+    public static void farm()
+    {
+        farmAmount++;
+        farmCost = new BigDecimal(farmCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
 }
