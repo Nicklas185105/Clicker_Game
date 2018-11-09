@@ -130,7 +130,7 @@ public class GUI
             //----- Third Panel -----
             JPanel thirdPanel = new JPanel();
             thirdPanel.setBorder(new LineBorder(Color.black,1,false));
-            thirdPanel.setLayout(new GridLayout(3,1));
+            thirdPanel.setLayout(new GridLayout(4,1));
 
                 //----- Click Power Panel -----
                 JPanel clickPowerPanel = new JPanel();
@@ -223,7 +223,7 @@ public class GUI
                     LabelUpdater.grandmaAmountLabel.setVerticalAlignment(JLabel.TOP);
                     grandmaLabelsPanel.add(LabelUpdater.grandmaAmountLabel);
 
-                //Tilføjer Grandma Labels Panel ind i Cursor Panel
+                //Tilføjer Grandma Labels Panel ind i Grandma Panel
                 grandmaPanel.add(grandmaLabelsPanel);
 
                 LabelUpdater.grandmaCostLabel = new JLabel("Grandma Cost = " + Buildings.grandmaCost);
@@ -234,11 +234,45 @@ public class GUI
                 //Tilføjer Grandma Panel ind i Third Panel
                 thirdPanel.add(grandmaPanel);
 
+                    //----- Farm Panel -----
+                    JPanel farmPanel = new JPanel();
+                    farmPanel.setLayout(new GridLayout(1,3));
+
+                    JButton farmButton = new JButton();
+                    loadImage(farmButton,"resources/grandma.png");
+                    farmButton.addActionListener(e -> LabelUpdater.updateFarmLabel());
+                    farmPanel.add(farmButton);
+
+                        //----- Farm Labels Panel -----
+                        JPanel farmLabelsPanel = new JPanel();
+                        farmLabelsPanel.setLayout(new GridLayout(2,1));
+
+                        LabelUpdater.farmPowerLabel = new JLabel("Farm Power = " + Buildings.farmPower);
+                        LabelUpdater.farmPowerLabel.setHorizontalAlignment(JLabel.CENTER);
+                        LabelUpdater.farmPowerLabel.setVerticalAlignment(JLabel.BOTTOM);
+                        farmLabelsPanel.add(LabelUpdater.farmPowerLabel);
+
+                        LabelUpdater.farmAmountLabel = new JLabel("Farm Amount = " + Buildings.farmAmount);
+                        LabelUpdater.farmAmountLabel.setHorizontalAlignment(JLabel.CENTER);
+                        LabelUpdater.farmAmountLabel.setVerticalAlignment(JLabel.TOP);
+                        farmLabelsPanel.add(LabelUpdater.farmAmountLabel);
+
+                    //Tilføjer Farm Labels Panel ind i Farm Panel
+                    farmPanel.add(farmLabelsPanel);
+
+                    LabelUpdater.farmCostLabel = new JLabel("Farm Cost = " + Buildings.farmCost);
+                    LabelUpdater.farmCostLabel.setHorizontalAlignment(JLabel.CENTER);
+                    LabelUpdater.farmCostLabel.setVerticalAlignment(JLabel.CENTER);
+                    farmPanel.add(LabelUpdater.farmCostLabel);
+
+                //Tilføjer Farm Panel ind i Third Panel
+                thirdPanel.add(farmPanel);
+
             //Tilføjer Third Panel ind i Main Panel
             mainPanel.add(thirdPanel);
 
-            //tilføjer Main Panel ind i Border Panel
-            borderPanel.add(mainPanel);
+        //tilføjer Main Panel ind i Border Panel
+        borderPanel.add(mainPanel);
 
         contentPane.add(mainPanel, BorderLayout.CENTER);
 
