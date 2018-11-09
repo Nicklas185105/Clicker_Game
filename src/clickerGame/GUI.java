@@ -130,7 +130,7 @@ public class GUI
             //----- Third Panel -----
             JPanel thirdPanel = new JPanel();
             thirdPanel.setBorder(new LineBorder(Color.black,1,false));
-            thirdPanel.setLayout(new GridLayout(2,1));
+            thirdPanel.setLayout(new GridLayout(3,1));
 
                 //----- Click Power Panel -----
                 JPanel clickPowerPanel = new JPanel();
@@ -147,12 +147,12 @@ public class GUI
 
                     LabelUpdater.clickPowerLabel = new JLabel("Click Power = " + Clicker.playerClicks);
                     LabelUpdater.clickPowerLabel.setHorizontalAlignment(JLabel.CENTER);
-                    LabelUpdater.clickPowerLabel.setVerticalAlignment(JLabel.CENTER);
+                    LabelUpdater.clickPowerLabel.setVerticalAlignment(JLabel.BOTTOM);
                     clickPowerLabelsPanel.add(LabelUpdater.clickPowerLabel);
 
                     LabelUpdater.clickPowerLevelLabel = new JLabel("Level = " + Clicker.clickPowerLevel + " / 100");
                     LabelUpdater.clickPowerLevelLabel.setHorizontalAlignment(JLabel.CENTER);
-                    LabelUpdater.clickPowerLevelLabel.setVerticalAlignment(JLabel.CENTER);
+                    LabelUpdater.clickPowerLevelLabel.setVerticalAlignment(JLabel.TOP);
                     clickPowerLabelsPanel.add(LabelUpdater.clickPowerLevelLabel);
 
                     //Tilføjer Click Power Labels Panel ind i Click Power Panel
@@ -166,39 +166,73 @@ public class GUI
                 //Tilføjer Click Power Panel ind i Third Panel
                 thirdPanel.add(clickPowerPanel);
 
-                //----- Arrow Clicker Panel -----
-                JPanel arrowClickerPanel = new JPanel();
-                arrowClickerPanel.setLayout(new GridLayout(1,3));
+                //----- Cursor Panel -----
+                JPanel cursorPanel = new JPanel();
+                cursorPanel.setLayout(new GridLayout(1,3));
 
-                JButton arrowClickerButton = new JButton();
-                loadImage(arrowClickerButton,"resources/cursor.png");
-                arrowClickerButton.addActionListener(e -> LabelUpdater.updateCursorLabel());
-                arrowClickerPanel.add(arrowClickerButton);
+                JButton cursorButton = new JButton();
+                loadImage(cursorButton,"resources/cursor.png");
+                cursorButton.addActionListener(e -> LabelUpdater.updateCursorLabel());
+                cursorPanel.add(cursorButton);
 
-                    //----- Arrow Clicker Labels Panel -----
-                    JPanel arrowClickerLabelsPanel = new JPanel();
-                    arrowClickerLabelsPanel.setLayout(new GridLayout(2,1));
+                    //----- Cursor Labels Panel -----
+                    JPanel cursorLabelsPanel = new JPanel();
+                    cursorLabelsPanel.setLayout(new GridLayout(2,1));
 
-                    LabelUpdater.cursorPowerLabel = new JLabel("AC Power = " + Buildings.cursorPower);
+                    LabelUpdater.cursorPowerLabel = new JLabel("Cursor Power = " + Buildings.cursorPower);
                     LabelUpdater.cursorPowerLabel.setHorizontalAlignment(JLabel.CENTER);
-                    LabelUpdater.cursorPowerLabel.setVerticalAlignment(JLabel.CENTER);
-                    arrowClickerLabelsPanel.add(LabelUpdater.cursorPowerLabel);
+                    LabelUpdater.cursorPowerLabel.setVerticalAlignment(JLabel.BOTTOM);
+                    cursorLabelsPanel.add(LabelUpdater.cursorPowerLabel);
 
-                    LabelUpdater.cursorAmountLabel = new JLabel("AC Amount = " + Buildings.cursorAmount);
+                    LabelUpdater.cursorAmountLabel = new JLabel("Cursor Amount = " + Buildings.cursorAmount);
                     LabelUpdater.cursorAmountLabel.setHorizontalAlignment(JLabel.CENTER);
-                    LabelUpdater.cursorAmountLabel.setVerticalAlignment(JLabel.CENTER);
-                    arrowClickerLabelsPanel.add(LabelUpdater.cursorAmountLabel);
+                    LabelUpdater.cursorAmountLabel.setVerticalAlignment(JLabel.TOP);
+                    cursorLabelsPanel.add(LabelUpdater.cursorAmountLabel);
 
-                    //Tilføjer Arrow Clicker Labels Panel ind i Arrow Clicker Panel
-                    arrowClickerPanel.add(arrowClickerLabelsPanel);
+                    //Tilføjer Cursor Labels Panel ind i Cursor Panel
+                    cursorPanel.add(cursorLabelsPanel);
 
-                LabelUpdater.cursorCostLabel = new JLabel("AC Cost = " + Buildings.cursorCost);
+                LabelUpdater.cursorCostLabel = new JLabel("Cursor Cost = " + Buildings.cursorCost);
                 LabelUpdater.cursorCostLabel.setHorizontalAlignment(JLabel.CENTER);
                 LabelUpdater.cursorCostLabel.setVerticalAlignment(JLabel.CENTER);
-                arrowClickerPanel.add(LabelUpdater.cursorCostLabel);
+                cursorPanel.add(LabelUpdater.cursorCostLabel);
 
-                //Tilføjer Arrow Clicker Panel ind i Third Panel
-                thirdPanel.add(arrowClickerPanel);
+                //Tilføjer Cursor Panel ind i Third Panel
+                thirdPanel.add(cursorPanel);
+
+                //----- Grandma Panel -----
+                JPanel grandmaPanel = new JPanel();
+                grandmaPanel.setLayout(new GridLayout(1,3));
+
+                JButton grandmaButton = new JButton();
+                loadImage(grandmaButton,"resources/grandma.png");
+                grandmaButton.addActionListener(e -> LabelUpdater.updateGrandmaLabel());
+                grandmaPanel.add(grandmaButton);
+
+                    //----- Grandma Labels Panel -----
+                    JPanel grandmaLabelsPanel = new JPanel();
+                    grandmaLabelsPanel.setLayout(new GridLayout(2,1));
+
+                    LabelUpdater.grandmaPowerLabel = new JLabel("Grandma Power = " + Buildings.grandmaPower);
+                    LabelUpdater.grandmaPowerLabel.setHorizontalAlignment(JLabel.CENTER);
+                    LabelUpdater.grandmaPowerLabel.setVerticalAlignment(JLabel.BOTTOM);
+                    grandmaLabelsPanel.add(LabelUpdater.grandmaPowerLabel);
+
+                    LabelUpdater.grandmaAmountLabel = new JLabel("Grandma Amount = " + Buildings.grandmaAmount);
+                    LabelUpdater.grandmaAmountLabel.setHorizontalAlignment(JLabel.CENTER);
+                    LabelUpdater.grandmaAmountLabel.setVerticalAlignment(JLabel.TOP);
+                    grandmaLabelsPanel.add(LabelUpdater.grandmaAmountLabel);
+
+                //Tilføjer Grandma Labels Panel ind i Cursor Panel
+                grandmaPanel.add(grandmaLabelsPanel);
+
+                LabelUpdater.grandmaCostLabel = new JLabel("Grandma Cost = " + Buildings.grandmaCost);
+                LabelUpdater.grandmaCostLabel.setHorizontalAlignment(JLabel.CENTER);
+                LabelUpdater.grandmaCostLabel.setVerticalAlignment(JLabel.CENTER);
+                grandmaPanel.add(LabelUpdater.grandmaCostLabel);
+
+                //Tilføjer Grandma Panel ind i Third Panel
+                thirdPanel.add(grandmaPanel);
 
             //Tilføjer Third Panel ind i Main Panel
             mainPanel.add(thirdPanel);
