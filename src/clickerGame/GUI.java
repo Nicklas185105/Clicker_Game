@@ -130,7 +130,7 @@ public class GUI
             //----- Third Panel -----
             JPanel thirdPanel = new JPanel();
             thirdPanel.setBorder(new LineBorder(Color.black,1,false));
-            thirdPanel.setLayout(new GridLayout(4,1));
+            thirdPanel.setLayout(new GridLayout(5,1));
 
                 //----- Click Power Panel -----
                 JPanel clickPowerPanel = new JPanel();
@@ -267,6 +267,40 @@ public class GUI
 
                 //Tilføjer Farm Panel ind i Third Panel
                 thirdPanel.add(farmPanel);
+
+                    //----- Mine Panel -----
+                    JPanel minePanel = new JPanel();
+                    minePanel.setLayout(new GridLayout(1,3));
+
+                    JButton mineButton = new JButton();
+                    loadImage(mineButton, "resources/grandma.png");
+                    mineButton.addActionListener(e -> LabelUpdater.updateMineLabel());
+                    minePanel.add(mineButton);
+
+                        //----- Mine Labels Panel -----
+                        JPanel mineLabelsPanel = new JPanel();
+                        mineLabelsPanel.setLayout(new GridLayout(2,1));
+
+                        LabelUpdater.minePowerLabel = new JLabel("Mine Power = " + Buildings.minePower);
+                        LabelUpdater.minePowerLabel.setHorizontalAlignment(JLabel.CENTER);
+                        LabelUpdater.minePowerLabel.setVerticalAlignment(JLabel.BOTTOM);
+                        mineLabelsPanel.add(LabelUpdater.minePowerLabel);
+
+                        LabelUpdater.mineAmountLabel = new JLabel("Mine Amount = " + Buildings.mineAmount);
+                        LabelUpdater.mineAmountLabel.setHorizontalAlignment(JLabel.CENTER);
+                        LabelUpdater.mineAmountLabel.setVerticalAlignment(JLabel.TOP);
+                        mineLabelsPanel.add(LabelUpdater.mineAmountLabel);
+
+                    //Tiløjer Mine Labels Panel ind i Mine Panel
+                    minePanel.add(mineLabelsPanel);
+
+                    LabelUpdater.mineCostLabel = new JLabel("Mine Cost = " + Buildings.mineCost);
+                    LabelUpdater.mineCostLabel.setHorizontalAlignment(JLabel.CENTER);
+                    LabelUpdater.mineCostLabel.setVerticalAlignment(JLabel.CENTER);
+                    minePanel.add(LabelUpdater.mineCostLabel);
+
+                //Tilføjer Mine Panel ind i Third Panel
+                thirdPanel.add(minePanel);
 
             //Tilføjer Third Panel ind i Main Panel
             mainPanel.add(thirdPanel);

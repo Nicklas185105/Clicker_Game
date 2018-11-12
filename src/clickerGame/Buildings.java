@@ -47,6 +47,11 @@ public class Buildings {
     public static int farmAmount;
     public static BigInteger farmCost;
 
+    //----- Mine -----
+    public static BigDecimal minePower;
+    public static int mineAmount;
+    public static BigInteger mineCost;
+
     /**
      *
      * @since 1.0.2
@@ -70,6 +75,11 @@ public class Buildings {
         farmPower = new BigDecimal("8");
         farmAmount = 0;
         farmCost = new BigInteger("1100");
+
+        //----- Mine -----
+        minePower = new BigDecimal("47");
+        mineAmount = 0;
+        mineCost = new BigInteger("12000");
     }
 
     /**
@@ -124,6 +134,9 @@ public class Buildings {
         //----- Farm -----
         totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(farmAmount).multiply(farmPower));
 
+        //----- Mine -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(mineAmount).multiply(minePower));
+
         //----- Update cookiesPerSecond Label -----
         LabelUpdater.cookiesPerSecond.setText("per second: " + totalCookiesPerSecond);
     }
@@ -158,6 +171,13 @@ public class Buildings {
     {
         farmAmount++;
         farmCost = new BigDecimal(farmCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    public static void mine()
+    {
+        mineAmount++;
+        mineCost = new BigDecimal(mineCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 

@@ -35,6 +35,11 @@ public class LabelUpdater {
     public static JLabel farmAmountLabel;
     public static JLabel farmCostLabel;
 
+    //----- Mine Labels -----
+    public static JLabel minePowerLabel;
+    public static JLabel mineAmountLabel;
+    public static JLabel mineCostLabel;
+
     public LabelUpdater()
     {
 
@@ -187,6 +192,22 @@ public class LabelUpdater {
             farmPowerLabel.setText("Farm Power = " + Buildings.farmPower);
             farmAmountLabel.setText("Farm Amount = " + Buildings.farmAmount);
             updateLabel(farmCostLabel,Buildings.farmCost, "Farm");
+        }
+    }
+
+    /**
+     * @since 1.0.2
+     */
+    public static void updateMineLabel()
+    {
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.mineCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.mineCost.negate()));
+            updateCookies(false);
+            Buildings.mine();
+            minePowerLabel.setText("Mine Power = " + Buildings.minePower);
+            mineAmountLabel.setText("Mine Amount = " + Buildings.mineAmount);
+            updateLabel(mineCostLabel,Buildings.mineCost,"Mine");
         }
     }
 
