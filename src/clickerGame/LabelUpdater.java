@@ -40,6 +40,66 @@ public class LabelUpdater {
     public static JLabel mineAmountLabel;
     public static JLabel mineCostLabel;
 
+    //----- Factory Labels -----
+    public static JLabel factoryPowerLabel;
+    public static JLabel factoryAmountLabel;
+    public static JLabel factoryCostLabel;
+
+    //----- Bank Labels -----
+    public static JLabel bankPowerLabel;
+    public static JLabel bankAmountLabel;
+    public static JLabel bankCostLabel;
+
+    //----- Temple Labels -----
+    public static JLabel templePowerLabel;
+    public static JLabel templeAmountLabel;
+    public static JLabel templeCostLabel;
+
+    //----- Wizard Tower Labels -----
+    public static JLabel wizardTowerPowerLabel;
+    public static JLabel wizardTowerAmountLabel;
+    public static JLabel wizardTowerCostLabel;
+
+    //----- Shipment Labels -----
+    public static JLabel shipmentPowerLabel;
+    public static JLabel shipmentAmountLabel;
+    public static JLabel shipmentCostLabel;
+
+    //----- Alchemy Lab Labels -----
+    public static JLabel alchemyLabPowerLabel;
+    public static JLabel alchemyLabAmountLabel;
+    public static JLabel alchemyLabCostLabel;
+
+    //----- Portal Labels -----
+    public static JLabel portalPowerLabel;
+    public static JLabel portalAmountLabel;
+    public static JLabel portalCostLabel;
+
+    //----- Time Machine Labels -----
+    public static JLabel timeMachinePowerLabel;
+    public static JLabel timeMachineAmountLabel;
+    public static JLabel timeMachineCostLabel;
+
+    //----- Antimatter Condenser Labels -----
+    public static JLabel antimatterCondenserPowerLabel;
+    public static JLabel antimatterCondenserAmountLabel;
+    public static JLabel antimatterCondenserCostLabel;
+
+    //----- Prism Labels -----
+    public static JLabel prismPowerLabel;
+    public static JLabel prismAmountLabel;
+    public static JLabel prismCostLabeL;
+
+    //----- Chancemaker Labels -----
+    public static JLabel chancemakerPowerLabel;
+    public static JLabel chancemakerAmountLabel;
+    public static JLabel chancemakeCostLabel;
+
+    //----- Fractal Engine Labels -----
+    public static JLabel fractalEnginePowerLabel;
+    public static JLabel fractalEngineAmountLabel;
+    public static JLabel fractalEngineCostLabel;
+
     public LabelUpdater()
     {
 

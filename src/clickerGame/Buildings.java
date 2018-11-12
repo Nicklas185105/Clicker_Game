@@ -52,6 +52,66 @@ public class Buildings {
     public static int mineAmount;
     public static BigInteger mineCost;
 
+    //----- Factory -----
+    public static BigDecimal factoryPower;
+    public static int factoryAmount;
+    public static BigInteger factoryCost;
+
+    //----- Bank -----
+    public static BigDecimal bankPower;
+    public static int bankAmount;
+    public static BigInteger bankCost;
+
+    //----- Temple -----
+    public static BigDecimal templePower;
+    public static int templeAmount;
+    public static BigInteger templeCost;
+
+    //----- Wizard Tower -----
+    public static BigDecimal wizardTowerPower;
+    public static int wizardTowerAmount;
+    public static BigInteger wizardTowerCost;
+
+    //----- Shipment -----
+    public static BigDecimal shipmentPower;
+    public static int shipmentAmount;
+    public static BigInteger shipmentCost;
+
+    //----- Alchemy Lab -----
+    public static BigDecimal alchemyLabPower;
+    public static int alchemyLabAmount;
+    public static BigInteger alchemyLabCost;
+
+    //----- Portal -----
+    public static BigDecimal portalPower;
+    public static int portalAmount;
+    public static BigInteger portalCost;
+
+    //----- Time Machine -----
+    public static BigDecimal timeMachinePower;
+    public static int timeMachineAmount;
+    public static BigInteger timeMachineCost;
+
+    //----- Antimatter Condenser -----
+    public static BigDecimal antimatterCondenserPower;
+    public static int antimatterCondenserAmount;
+    public static BigInteger antimatterCondenserCost;
+
+    //----- Prism -----
+    public static BigDecimal prismPower;
+    public static int prismAmount;
+    public static BigInteger prismCost;
+
+    //----- Chancemaker -----
+    public static BigDecimal chancemakerPower;
+    public static int chancemakerAmount;
+    public static BigInteger chancemakerCost;
+
+    //----- Fractal Engine -----
+    public static BigDecimal fractalEnginePower;
+    public static int fractalEngineAmount;
+    public static BigInteger fractalEngineCost;
+
     /**
      *
      * @since 1.0.2
