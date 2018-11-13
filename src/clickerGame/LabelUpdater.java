@@ -273,62 +273,158 @@ public class LabelUpdater {
 
     static void updateFactoryLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.factoryCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.factoryCost.negate()));
+            updateCookies(false);
+            Buildings.factory();
+            factoryPowerLabel.setText("Factory Power = " + Buildings.factoryPower);
+            factoryAmountLabel.setText("Factory Amount = " + Buildings.factoryAmount);
+            updateLabel(factoryCostLabel,Buildings.factoryCost,"Factory");
+        }
     }
 
     static void updateBankLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.bankCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.bankCost.negate()));
+            updateCookies(false);
+            Buildings.bank();
+            bankPowerLabel.setText("Bank Power = " + Buildings.bankPower);
+            bankAmountLabel.setText("Bank Amount = " + Buildings.bankAmount);
+            updateLabel(bankCostLabel,Buildings.bankCost,"Bank");
+        }
     }
 
     static void updateTempleLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.templeCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.templeCost.negate()));
+            updateCookies(false);
+            Buildings.temple();
+            templePowerLabel.setText("Temple Power = " + Buildings.templePower);
+            templeAmountLabel.setText("Temple Amount = " + Buildings.templeAmount);
+            updateLabel(templeCostLabel,Buildings.templeCost,"Temple");
+        }
     }
 
     static void updateWizardTowerLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.wizardTowerCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.wizardTowerCost.negate()));
+            updateCookies(false);
+            Buildings.wizardTower();
+            wizardTowerPowerLabel.setText("WT Power = " + Buildings.wizardTowerPower);
+            wizardTowerAmountLabel.setText("WT Amount = " + Buildings.wizardTowerAmount);
+            updateLabel(wizardTowerCostLabel,Buildings.wizardTowerCost,"WT");
+        }
     }
 
     static void updateShipmentLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.shipmentCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.shipmentCost.negate()));
+            updateCookies(false);
+            Buildings.shipment();
+            shipmentPowerLabel.setText("Shipment Power = " + Buildings.shipmentPower);
+            shipmentAmountLabel.setText("Shipment Amount = " + Buildings.shipmentAmount);
+            updateLabel(shipmentCostLabel,Buildings.shipmentCost,"Shipment");
+        }
     }
 
     static void updateAlchemyLabLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.alchemyLabCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.alchemyLabCost.negate()));
+            updateCookies(false);
+            Buildings.alchemyLab();
+            alchemyLabPowerLabel.setText("AL Power = " + Buildings.alchemyLabPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            alchemyLabAmountLabel.setText("AL Amount = " + Buildings.alchemyLabAmount);
+            updateLabel(alchemyLabCostLabel,Buildings.alchemyLabCost,"AL");
+        }
     }
 
     static void updatePortalLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.portalCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.portalCost.negate()));
+            updateCookies(false);
+            Buildings.portal();
+            portalPowerLabel.setText("Portal Power = " + Buildings.portalPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            portalAmountLabel.setText("Portal Amount = " + Buildings.portalAmount);
+            updateLabel(portalCostLabel,Buildings.portalCost,"Portal");
+        }
     }
 
     static void updateTimeMachineLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.timeMachineCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.timeMachineCost.negate()));
+            updateCookies(false);
+            Buildings.timeMachine();
+            timeMachinePowerLabel.setText("TM Power = " + Buildings.timeMachinePower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            timeMachineAmountLabel.setText("TM Amount = " + Buildings.timeMachineAmount);
+            updateLabel(timeMachineCostLabel,Buildings.timeMachineCost,"TM");
+        }
     }
 
     static void updateAntimatterCondeserLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.antimatterCondenserCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.antimatterCondenserCost.negate()));
+            updateCookies(false);
+            Buildings.antimatterCondenser();
+            antimatterCondenserPowerLabel.setText("AC Power = " + Buildings.antimatterCondenserPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            antimatterCondenserAmountLabel.setText("AC Amount = " + Buildings.antimatterCondenserAmount);
+            updateLabel(antimatterCondenserCostLabel,Buildings.antimatterCondenserCost,"AC");
+        }
     }
 
     static void updatePrismLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.prismCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.prismCost.negate()));
+            updateCookies(false);
+            Buildings.prism();
+            prismPowerLabel.setText("Prism Power = " + Buildings.prismPower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
+            prismAmountLabel.setText("Prism Amount = " + Buildings.prismAmount);
+            updateLabel(prismCostLabeL,Buildings.prismCost,"Prism");
+        }
     }
 
     static void updateChancemakerLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.chancemakerCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.chancemakerCost.negate()));
+            updateCookies(false);
+            Buildings.chancemaker();
+            chancemakerPowerLabel.setText("CM Power = " + Buildings.chancemakerPower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
+            chancemakerAmountLabel.setText("CM Amount = " + Buildings.chancemakerAmount);
+            updateLabel(chancemakeCostLabel,Buildings.chancemakerCost,"CM");
+        }
     }
 
     static void updateFractalEngineLabel()
     {
-
+        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.fractalEngineCost)) >= 0)
+        {
+            GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.fractalEngineCost.negate()));
+            updateCookies(false);
+            Buildings.fractalEngine();
+            fractalEnginePowerLabel.setText("FE Power = " + Buildings.fractalEnginePower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
+            fractalEngineAmountLabel.setText("FE Amount = " + Buildings.fractalEngineAmount);
+            updateLabel(fractalEngineCostLabel,Buildings.fractalEngineCost,"FE");
+        }
     }
 
 }
