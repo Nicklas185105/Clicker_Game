@@ -14,91 +14,91 @@ import java.math.RoundingMode;
 public class LabelUpdater {
 
     //----- Clicks Labels -----
-    public static JLabel cookies;
-    public static JLabel cookiesPerSecond;
-    public static JLabel clickPowerLabel;
-    public static JLabel clickPowerCostLabel;
-    public static JLabel clickPowerLevelLabel;
+    static JLabel cookies;
+    static JLabel cookiesPerSecond;
+    static JLabel clickPowerLabel;
+    static JLabel clickPowerCostLabel;
+    static JLabel clickPowerLevelLabel;
 
     //----- Cursor Labels -----
-    public static JLabel cursorPowerLabel;
-    public static JLabel cursorAmountLabel;
-    public static JLabel cursorCostLabel;
+    static JLabel cursorPowerLabel;
+    static JLabel cursorAmountLabel;
+    static JLabel cursorCostLabel;
 
     //----- Grandma Labels -----
-    public static JLabel grandmaPowerLabel;
-    public static JLabel grandmaAmountLabel;
-    public static JLabel grandmaCostLabel;
+    static JLabel grandmaPowerLabel;
+    static JLabel grandmaAmountLabel;
+    static JLabel grandmaCostLabel;
 
     //----- Farm Labels -----
-    public static JLabel farmPowerLabel;
-    public static JLabel farmAmountLabel;
-    public static JLabel farmCostLabel;
+    static JLabel farmPowerLabel;
+    static JLabel farmAmountLabel;
+    static JLabel farmCostLabel;
 
     //----- Mine Labels -----
-    public static JLabel minePowerLabel;
-    public static JLabel mineAmountLabel;
-    public static JLabel mineCostLabel;
+    static JLabel minePowerLabel;
+    static JLabel mineAmountLabel;
+    static JLabel mineCostLabel;
 
     //----- Factory Labels -----
-    public static JLabel factoryPowerLabel;
-    public static JLabel factoryAmountLabel;
-    public static JLabel factoryCostLabel;
+    static JLabel factoryPowerLabel;
+    static JLabel factoryAmountLabel;
+    static JLabel factoryCostLabel;
 
     //----- Bank Labels -----
-    public static JLabel bankPowerLabel;
-    public static JLabel bankAmountLabel;
-    public static JLabel bankCostLabel;
+    static JLabel bankPowerLabel;
+    static JLabel bankAmountLabel;
+    static JLabel bankCostLabel;
 
     //----- Temple Labels -----
-    public static JLabel templePowerLabel;
-    public static JLabel templeAmountLabel;
-    public static JLabel templeCostLabel;
+    static JLabel templePowerLabel;
+    static JLabel templeAmountLabel;
+    static JLabel templeCostLabel;
 
     //----- Wizard Tower Labels -----
-    public static JLabel wizardTowerPowerLabel;
-    public static JLabel wizardTowerAmountLabel;
-    public static JLabel wizardTowerCostLabel;
+    static JLabel wizardTowerPowerLabel;
+    static JLabel wizardTowerAmountLabel;
+    static JLabel wizardTowerCostLabel;
 
     //----- Shipment Labels -----
-    public static JLabel shipmentPowerLabel;
-    public static JLabel shipmentAmountLabel;
-    public static JLabel shipmentCostLabel;
+    static JLabel shipmentPowerLabel;
+    static JLabel shipmentAmountLabel;
+    static JLabel shipmentCostLabel;
 
     //----- Alchemy Lab Labels -----
-    public static JLabel alchemyLabPowerLabel;
-    public static JLabel alchemyLabAmountLabel;
-    public static JLabel alchemyLabCostLabel;
+    static JLabel alchemyLabPowerLabel;
+    static JLabel alchemyLabAmountLabel;
+    static JLabel alchemyLabCostLabel;
 
     //----- Portal Labels -----
-    public static JLabel portalPowerLabel;
-    public static JLabel portalAmountLabel;
-    public static JLabel portalCostLabel;
+    static JLabel portalPowerLabel;
+    static JLabel portalAmountLabel;
+    static JLabel portalCostLabel;
 
     //----- Time Machine Labels -----
-    public static JLabel timeMachinePowerLabel;
-    public static JLabel timeMachineAmountLabel;
-    public static JLabel timeMachineCostLabel;
+    static JLabel timeMachinePowerLabel;
+    static JLabel timeMachineAmountLabel;
+    static JLabel timeMachineCostLabel;
 
     //----- Antimatter Condenser Labels -----
-    public static JLabel antimatterCondenserPowerLabel;
-    public static JLabel antimatterCondenserAmountLabel;
-    public static JLabel antimatterCondenserCostLabel;
+    static JLabel antimatterCondenserPowerLabel;
+    static JLabel antimatterCondenserAmountLabel;
+    static JLabel antimatterCondenserCostLabel;
 
     //----- Prism Labels -----
-    public static JLabel prismPowerLabel;
-    public static JLabel prismAmountLabel;
-    public static JLabel prismCostLabeL;
+    static JLabel prismPowerLabel;
+    static JLabel prismAmountLabel;
+    static JLabel prismCostLabeL;
 
     //----- Chancemaker Labels -----
-    public static JLabel chancemakerPowerLabel;
-    public static JLabel chancemakerAmountLabel;
-    public static JLabel chancemakeCostLabel;
+    static JLabel chancemakerPowerLabel;
+    static JLabel chancemakerAmountLabel;
+    static JLabel chancemakeCostLabel;
 
     //----- Fractal Engine Labels -----
-    public static JLabel fractalEnginePowerLabel;
-    public static JLabel fractalEngineAmountLabel;
-    public static JLabel fractalEngineCostLabel;
+    static JLabel fractalEnginePowerLabel;
+    static JLabel fractalEngineAmountLabel;
+    static JLabel fractalEngineCostLabel;
 
     public LabelUpdater()
     {
@@ -110,7 +110,7 @@ public class LabelUpdater {
      * @param TF We are using this boolean to define if it's just for updating the label or if it's an actual player click. <p>true for click and false for updating.</p>
      * @since 1.0.1
      */
-    public static void updateCookies(boolean TF)
+    static void updateCookies(boolean TF)
     {
         if (TF) {
 
@@ -148,7 +148,7 @@ public class LabelUpdater {
      * while updating the labels for the different variables in clickPower.
      * @since 1.0.1
      */
-    public static void updateClickPowerLabel()
+    static void updateClickPowerLabel()
     {
         if(GUI.totalCookies.compareTo(BigDecimal.valueOf(Clicker.clickPowerCost)) >= 0 && Clicker.clickPowerLevel <= 99)
         {
@@ -178,7 +178,7 @@ public class LabelUpdater {
      * @param costBuilding The buildings cost value.
      * @param string The buildings name.
      */
-    public static void updateLabel(JLabel costLabel, BigInteger costBuilding, String string) {
+    private static void updateLabel(JLabel costLabel, BigInteger costBuilding, String string) {
         if (costBuilding.compareTo(new BigInteger("1000000")) < 0)
         {
             costLabel.setText(string + " Cost = " + costBuilding.toString());
@@ -210,7 +210,7 @@ public class LabelUpdater {
      * This is where the labels for Arrow Clicker is updated.
      * @since 1.0.1
      */
-    public static void updateCursorLabel()
+    static void updateCursorLabel()
     {
         if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.cursorCost)) >= 0)
         {
@@ -226,7 +226,7 @@ public class LabelUpdater {
     /**
      * @since 1.0.2
      */
-    public static void updateGrandmaLabel()
+    static void updateGrandmaLabel()
     {
         if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.grandmaCost)) >= 0)
         {
@@ -242,7 +242,7 @@ public class LabelUpdater {
     /**
      * @since 1.0.2
      */
-    public static void updateFarmLabel()
+    static void updateFarmLabel()
     {
         if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.farmCost)) >= 0)
         {
@@ -258,7 +258,7 @@ public class LabelUpdater {
     /**
      * @since 1.0.2
      */
-    public static void updateMineLabel()
+    static void updateMineLabel()
     {
         if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.mineCost)) >= 0)
         {
@@ -269,6 +269,66 @@ public class LabelUpdater {
             mineAmountLabel.setText("Mine Amount = " + Buildings.mineAmount);
             updateLabel(mineCostLabel,Buildings.mineCost,"Mine");
         }
+    }
+
+    static void updateFactoryLabel()
+    {
+
+    }
+
+    static void updateBankLabel()
+    {
+
+    }
+
+    static void updateTempleLabel()
+    {
+
+    }
+
+    static void updateWizardTowerLabel()
+    {
+
+    }
+
+    static void updateShipmentLabel()
+    {
+
+    }
+
+    static void updateAlchemyLabLabel()
+    {
+
+    }
+
+    static void updatePortalLabel()
+    {
+
+    }
+
+    static void updateTimeMachineLabel()
+    {
+
+    }
+
+    static void updateAntimatterCondeserLabel()
+    {
+
+    }
+
+    static void updatePrismLabel()
+    {
+
+    }
+
+    static void updateChancemakerLabel()
+    {
+
+    }
+
+    static void updateFractalEngineLabel()
+    {
+
     }
 
 }

@@ -20,103 +20,103 @@ public class Buildings {
     /**
      * This integer is holding the amount of auto clicks the player has.
      */
-    public static BigDecimal totalCookiesPerSecond;
-    public static BigDecimal buildingCostMultiplier;
+    private static BigDecimal totalCookiesPerSecond;
+    private static BigDecimal buildingCostMultiplier;
 
     //----- Cursor -----
     /**
      * This defines the Cursor Power.
      */
-    public static BigDecimal cursorPower;
+    static BigDecimal cursorPower;
     /**
      * This defines the amount the player has of Cursor.
      */
-    public static int cursorAmount;
+    static int cursorAmount;
     /**
      * This defines the cost of the Cursor.
      */
-    public static BigInteger cursorCost;
+    static BigInteger cursorCost;
 
     //----- Grandma -----
-    public static BigDecimal grandmaPower;
-    public static int grandmaAmount;
-    public static BigInteger grandmaCost;
+    static BigDecimal grandmaPower;
+    static int grandmaAmount;
+    static BigInteger grandmaCost;
 
     //----- Farm -----
-    public static BigDecimal farmPower;
-    public static int farmAmount;
-    public static BigInteger farmCost;
+    static BigDecimal farmPower;
+    static int farmAmount;
+    static BigInteger farmCost;
 
     //----- Mine -----
-    public static BigDecimal minePower;
-    public static int mineAmount;
-    public static BigInteger mineCost;
+    static BigDecimal minePower;
+    static int mineAmount;
+    static BigInteger mineCost;
 
     //----- Factory -----
-    public static BigDecimal factoryPower;
-    public static int factoryAmount;
-    public static BigInteger factoryCost;
+    static BigDecimal factoryPower;
+    static int factoryAmount;
+    static BigInteger factoryCost;
 
     //----- Bank -----
-    public static BigDecimal bankPower;
-    public static int bankAmount;
-    public static BigInteger bankCost;
+    static BigDecimal bankPower;
+    static int bankAmount;
+    static BigInteger bankCost;
 
     //----- Temple -----
-    public static BigDecimal templePower;
-    public static int templeAmount;
-    public static BigInteger templeCost;
+    static BigDecimal templePower;
+    static int templeAmount;
+    static BigInteger templeCost;
 
     //----- Wizard Tower -----
-    public static BigDecimal wizardTowerPower;
-    public static int wizardTowerAmount;
-    public static BigInteger wizardTowerCost;
+    static BigDecimal wizardTowerPower;
+    static int wizardTowerAmount;
+    static BigInteger wizardTowerCost;
 
     //----- Shipment -----
-    public static BigDecimal shipmentPower;
-    public static int shipmentAmount;
-    public static BigInteger shipmentCost;
+    static BigDecimal shipmentPower;
+    static int shipmentAmount;
+    static BigInteger shipmentCost;
 
     //----- Alchemy Lab -----
-    public static BigDecimal alchemyLabPower;
-    public static int alchemyLabAmount;
-    public static BigInteger alchemyLabCost;
+    static BigDecimal alchemyLabPower;
+    static int alchemyLabAmount;
+    static BigInteger alchemyLabCost;
 
     //----- Portal -----
-    public static BigDecimal portalPower;
-    public static int portalAmount;
-    public static BigInteger portalCost;
+    static BigDecimal portalPower;
+    static int portalAmount;
+    static BigInteger portalCost;
 
     //----- Time Machine -----
-    public static BigDecimal timeMachinePower;
-    public static int timeMachineAmount;
-    public static BigInteger timeMachineCost;
+    static BigDecimal timeMachinePower;
+    static int timeMachineAmount;
+    static BigInteger timeMachineCost;
 
     //----- Antimatter Condenser -----
-    public static BigDecimal antimatterCondenserPower;
-    public static int antimatterCondenserAmount;
-    public static BigInteger antimatterCondenserCost;
+    static BigDecimal antimatterCondenserPower;
+    static int antimatterCondenserAmount;
+    static BigInteger antimatterCondenserCost;
 
     //----- Prism -----
-    public static BigDecimal prismPower;
-    public static int prismAmount;
-    public static BigInteger prismCost;
+    static BigDecimal prismPower;
+    static int prismAmount;
+    static BigInteger prismCost;
 
     //----- Chancemaker -----
-    public static BigDecimal chancemakerPower;
-    public static int chancemakerAmount;
-    public static BigInteger chancemakerCost;
+    static BigDecimal chancemakerPower;
+    static int chancemakerAmount;
+    static BigInteger chancemakerCost;
 
     //----- Fractal Engine -----
-    public static BigDecimal fractalEnginePower;
-    public static int fractalEngineAmount;
-    public static BigInteger fractalEngineCost;
+    static BigDecimal fractalEnginePower;
+    static int fractalEngineAmount;
+    static BigInteger fractalEngineCost;
 
     /**
-     *
+     * Setting all the varibales to their start values.
      * @since 1.0.2
      */
-    public Buildings()
+    Buildings()
     {
         totalCookiesPerSecond = new BigDecimal("0");
         buildingCostMultiplier = new BigDecimal("1.15");
@@ -140,6 +140,67 @@ public class Buildings {
         minePower = new BigDecimal("47");
         mineAmount = 0;
         mineCost = new BigInteger("12000");
+
+        //----- Factory -----
+        factoryPower = new BigDecimal("260");
+        factoryAmount = 0;
+        factoryCost = new BigInteger("130000");
+
+        //----- Bank -----
+        bankPower = new BigDecimal("1400");
+        bankAmount = 0;
+        bankCost = new BigInteger("1400000");
+
+        //----- Temple -----
+        templePower = new BigDecimal("7800");
+        templeAmount = 0;
+        templeCost = new BigInteger("20000000");
+
+        //----- Wizard Tower -----
+        wizardTowerPower = new BigDecimal("44000");
+        wizardTowerAmount = 0;
+        wizardTowerCost = new BigInteger("330000000");
+
+        //----- Shipment -----
+        shipmentPower = new BigDecimal("260000");
+        shipmentAmount = 0;
+        shipmentCost = new BigInteger("5100000000");
+
+        //----- Alchemy Lab -----
+        alchemyLabPower = new BigDecimal("1600000");
+        alchemyLabAmount = 0;
+        alchemyLabCost = new BigInteger("75000000000");
+
+        //----- Portal -----
+        portalPower = new BigDecimal("10000000");
+        portalAmount = 0;
+        portalCost = new BigInteger("1000000000000");
+
+        //----- Time Machine -----
+        timeMachinePower = new BigDecimal("65000000");
+        timeMachineAmount = 0;
+        timeMachineCost = new BigInteger("14000000000000");
+
+        //----- Antimatter Condenser -----
+        antimatterCondenserPower = new BigDecimal("430000000");
+        antimatterCondenserAmount = 0;
+        antimatterCondenserCost = new BigInteger("170000000000000");
+
+        //----- Prism -----
+        prismPower = new BigDecimal("2900000000");
+        prismAmount = 0;
+        prismCost = new BigInteger("2100000000000000");
+
+        //----- Chancemaker -----
+        chancemakerPower = new BigDecimal("21000000000");
+        chancemakerAmount = 0;
+        chancemakerCost = new BigInteger("26000000000000000");
+
+        //----- Fractal Engine -----
+        fractalEnginePower = new BigDecimal("150000000000");
+        fractalEngineAmount = 0;
+        fractalEngineCost = new BigInteger("310000000000000000");
+
     }
 
     /**
@@ -162,7 +223,7 @@ public class Buildings {
      * This is where the loop for the auto clickers are running all the auto clickers.
      * @since 1.0.1
      */
-    public static void cookiesPerSecondLoop()
+    static void cookiesPerSecondLoop()
     {
         while (GUI.gameRunning)
         {
@@ -182,7 +243,7 @@ public class Buildings {
      *
      * @since 1.0.2
      */
-    public static void setTotalCookiesPerSecond()
+    private static void setTotalCookiesPerSecond()
     {
         //----- Cursor -----
         totalCookiesPerSecond = new BigDecimal(cursorAmount).multiply(cursorPower);
@@ -197,6 +258,43 @@ public class Buildings {
         //----- Mine -----
         totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(mineAmount).multiply(minePower));
 
+        //----- Factory -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(factoryAmount).multiply(factoryPower));
+
+        //----- Bank -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(bankAmount).multiply(bankPower));
+
+        //----- Temple -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(templeAmount).multiply(templePower));
+
+        //----- Wizard Tower -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(wizardTowerAmount).multiply(wizardTowerPower));
+
+        //----- Shipment -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(shipmentAmount).multiply(shipmentPower));
+
+        //----- Alchemy Lab -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(alchemyLabAmount).multiply(alchemyLabPower));
+
+        //----- Portal -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(portalAmount).multiply(portalPower));
+
+        //----- Time Machine -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(timeMachineAmount).multiply(timeMachinePower));
+
+        //----- Antimatter Condenser -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(antimatterCondenserAmount).multiply(antimatterCondenserPower));
+
+        //----- Prism -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(prismAmount).multiply(prismPower));
+
+        //----- Chancemaker -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(chancemakerAmount).multiply(chancemakerPower));
+
+        //----- Fractal Engine -----
+        totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(fractalEngineAmount).multiply(fractalEnginePower));
+
+
         //----- Update cookiesPerSecond Label -----
         LabelUpdater.cookiesPerSecond.setText("per second: " + totalCookiesPerSecond);
     }
@@ -205,7 +303,7 @@ public class Buildings {
      * This is were we change the variables of the Cursor building.
      * @since 1.0.2
      */
-    public static void cursor()
+    static void cursor()
     {
         cursorAmount++;
         cursorCost = new BigDecimal(cursorCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
@@ -216,7 +314,7 @@ public class Buildings {
      * This is were we change the variables of the Grandma building.
      * @since 1.0.2
      */
-    public static void grandma()
+    static void grandma()
     {
         grandmaAmount++;
         grandmaCost = new BigDecimal(grandmaCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
@@ -227,17 +325,101 @@ public class Buildings {
      * This is were we change the variables of the Farm building.
      * @since 1.0.2
      */
-    public static void farm()
+     static void farm()
     {
         farmAmount++;
         farmCost = new BigDecimal(farmCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    public static void mine()
+    static void mine()
     {
         mineAmount++;
         mineCost = new BigDecimal(mineCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void factory()
+    {
+        factoryAmount++;
+        factoryCost = new BigDecimal(factoryCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void bank()
+    {
+        bankAmount++;
+        bankCost = new BigDecimal(bankCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void temple()
+    {
+        templeAmount++;
+        templeCost = new BigDecimal(templeCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void wizardTower()
+    {
+        wizardTowerAmount++;
+        wizardTowerCost = new BigDecimal(wizardTowerCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void shipment()
+    {
+        shipmentAmount++;
+        shipmentCost = new BigDecimal(shipmentCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void alchemyLab()
+    {
+        alchemyLabAmount++;
+        alchemyLabCost = new BigDecimal(alchemyLabCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void  portal()
+    {
+        portalAmount++;
+        portalCost = new BigDecimal(portalCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void timeMachine()
+    {
+        timeMachineAmount++;
+        timeMachineCost = new BigDecimal(timeMachineCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void antimatterCondenser()
+    {
+        antimatterCondenserAmount++;
+        antimatterCondenserCost = new BigDecimal(antimatterCondenserCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void prism()
+    {
+        prismAmount++;
+        prismCost = new BigDecimal(prismCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void chancemaker()
+    {
+        chancemakerAmount++;
+        chancemakerCost = new BigDecimal(chancemakerCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        setTotalCookiesPerSecond();
+    }
+
+    static void fractalEngine()
+    {
+        fractalEngineAmount++;
+        fractalEngineCost = new BigDecimal(fractalEngineCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 

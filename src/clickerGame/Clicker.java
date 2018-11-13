@@ -18,21 +18,21 @@ public class Clicker
     /**
      * This defines the worth of the player click.
      */
-    public static BigInteger playerClicks;
+    static BigInteger playerClicks;
     /**
      * This defines the cost of the Click Power upgrade.
      */
-    public static int clickPowerCost;
+    static int clickPowerCost;
     /**
      * This defines the level of the Click Power upgrade.
      */
-    public static int clickPowerLevel;
+    static int clickPowerLevel;
 
     /**
      * This is where we begin by giving our integer variables a value.
      * @since 1.0.1
      */
-    public Clicker()
+    Clicker()
     {
         playerClicks = new BigInteger("1");
         clickPowerCost = 10;
@@ -43,7 +43,7 @@ public class Clicker
      * This upgrade is for upgrading the click power.
      * @since 1.0.1
      */
-    public static void clickPower()
+    static void clickPower()
     {
         BigInteger n = playerClicks.add(new BigInteger("1"));
         playerClicks = new BigDecimal(n).multiply(new BigDecimal("1.05")).setScale(0 , RoundingMode.HALF_UP).toBigInteger();
