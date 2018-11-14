@@ -6,7 +6,7 @@ package clickerGame;
  * @author Nicklas Lydersen
  * @since 1.0.1
  */
-public class Upgrades {
+class Upgrades {
 
     //----- Clicker & Cursor Upgrades -----
 
