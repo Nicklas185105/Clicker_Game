@@ -35,7 +35,7 @@ public class GUI
      */
     public GUI()
     {
-        totalCookies = totalCookies.add(new BigDecimal("999998"));
+        //totalCookies = totalCookies.add(new BigDecimal("999998"));
         new Clicker();
         new Buildings();
         //Clicker.playerClicks = 981911;
@@ -130,9 +130,9 @@ public class GUI
             //----- Third Panel -----
             JPanel thirdPanel = new JPanel();
             thirdPanel.setBorder(new LineBorder(Color.black,1,false));
-            thirdPanel.setLayout(new GridLayout(17,1));
+            thirdPanel.setLayout(new GridLayout(16,1));
 
-                //----- Click Power Panel -----
+                /*//----- Click Power Panel -----
                 JPanel clickPowerPanel = new JPanel();
                 clickPowerPanel.setLayout(new GridLayout(1,3));
 
@@ -164,7 +164,7 @@ public class GUI
                 clickPowerPanel.add(LabelUpdater.clickPowerCostLabel);
 
                 //Tilføjer Click Power Panel ind i Third Panel
-                thirdPanel.add(clickPowerPanel);
+                thirdPanel.add(clickPowerPanel);*/
 
                 //----- Cursor Panel -----
                 JPanel cursorPanel = new JPanel();
@@ -239,7 +239,7 @@ public class GUI
                     farmPanel.setLayout(new GridLayout(1,3));
 
                     JButton farmButton = new JButton();
-                    loadImage(farmButton,"resources/grandma.png");
+                    loadImage(farmButton,"resources/farm.png");
                     farmButton.addActionListener(e -> LabelUpdater.updateFarmLabel());
                     farmPanel.add(farmButton);
 
@@ -273,7 +273,7 @@ public class GUI
                     minePanel.setLayout(new GridLayout(1,3));
 
                     JButton mineButton = new JButton();
-                    loadImage(mineButton, "resources/grandma.png");
+                    loadImage(mineButton, "resources/mine.png");
                     mineButton.addActionListener(e -> LabelUpdater.updateMineLabel());
                     minePanel.add(mineButton);
 
@@ -307,7 +307,7 @@ public class GUI
                     factoryPanel.setLayout(new GridLayout(1,3));
 
                     JButton factoryButton = new JButton();
-                    loadImage(factoryButton, "resources/grandma.png");
+                    loadImage(factoryButton, "resources/factory.png");
                     factoryButton.addActionListener(e -> LabelUpdater.updateFactoryLabel());
                     factoryPanel.add(factoryButton);
 
@@ -341,7 +341,7 @@ public class GUI
                     bankPanel.setLayout(new GridLayout(1,3));
 
                     JButton bankButton = new JButton();
-                    loadImage(bankButton, "resources/grandma.png");
+                    loadImage(bankButton, "resources/bank.png");
                     bankButton.addActionListener(e -> LabelUpdater.updateBankLabel());
                     bankPanel.add(bankButton);
 
@@ -375,7 +375,7 @@ public class GUI
                     templePanel.setLayout(new GridLayout(1,3));
 
                     JButton templeButton = new JButton();
-                    loadImage(templeButton, "resources/grandma.png");
+                    loadImage(templeButton, "resources/temple.png");
                     templeButton.addActionListener(e -> LabelUpdater.updateTempleLabel());
                     templePanel.add(templeButton);
 
@@ -409,7 +409,7 @@ public class GUI
                     wizardTowerPanel.setLayout(new GridLayout(1,3));
 
                     JButton wizardTowerButton = new JButton();
-                    loadImage(wizardTowerButton, "resources/grandma.png");
+                    loadImage(wizardTowerButton, "resources/wizardTower.png");
                     wizardTowerButton.addActionListener(e -> LabelUpdater.updateWizardTowerLabel());
                     wizardTowerPanel.add(wizardTowerButton);
 
@@ -443,7 +443,7 @@ public class GUI
                     shipmentPanel.setLayout(new GridLayout(1,3));
 
                     JButton shipmentButton = new JButton();
-                    loadImage(shipmentButton, "resources/grandma.png");
+                    loadImage(shipmentButton, "resources/shipment.png");
                     shipmentButton.addActionListener(e -> LabelUpdater.updateShipmentLabel());
                     shipmentPanel.add(shipmentButton);
 
@@ -477,7 +477,7 @@ public class GUI
                     alchemyLabPanel.setLayout(new GridLayout(1,3));
 
                     JButton alchemyLabButton = new JButton();
-                    loadImage(alchemyLabButton, "resources/grandma.png");
+                    loadImage(alchemyLabButton, "resources/alchemyLab.png");
                     alchemyLabButton.addActionListener(e -> LabelUpdater.updateAlchemyLabLabel());
                     alchemyLabPanel.add(alchemyLabButton);
 
@@ -511,7 +511,7 @@ public class GUI
                     portalPanel.setLayout(new GridLayout(1,3));
 
                     JButton portalButton = new JButton();
-                    loadImage(portalButton, "resources/grandma.png");
+                    loadImage(portalButton, "resources/portal.png");
                     portalButton.addActionListener(e -> LabelUpdater.updatePortalLabel());
                     portalPanel.add(portalButton);
 
@@ -545,7 +545,7 @@ public class GUI
                     timeMachinePanel.setLayout(new GridLayout(1,3));
 
                     JButton timeMachineButton = new JButton();
-                    loadImage(timeMachineButton, "resources/grandma.png");
+                    loadImage(timeMachineButton, "resources/timeMachine.png");
                     timeMachineButton.addActionListener(e -> LabelUpdater.updateTimeMachineLabel());
                     timeMachinePanel.add(timeMachineButton);
 
@@ -579,7 +579,7 @@ public class GUI
                     antimatterCondenserPanel.setLayout(new GridLayout(1,3));
 
                     JButton antimatterCondenserButton = new JButton();
-                    loadImage(antimatterCondenserButton, "resources/grandma.png");
+                    loadImage(antimatterCondenserButton, "resources/antimatterCondenser.png");
                     antimatterCondenserButton.addActionListener(e -> LabelUpdater.updateAntimatterCondeserLabel());
                     antimatterCondenserPanel.add(antimatterCondenserButton);
 
@@ -613,7 +613,7 @@ public class GUI
                     prismPanel.setLayout(new GridLayout(1,3));
 
                     JButton prismButton = new JButton();
-                    loadImage(prismButton, "resources/grandma.png");
+                    loadImage(prismButton, "resources/prism.png");
                     prismButton.addActionListener(e -> LabelUpdater.updatePrismLabel());
                     prismPanel.add(prismButton);
 
@@ -647,7 +647,7 @@ public class GUI
                     chancemakerPanel.setLayout(new GridLayout(1,3));
 
                     JButton chancemakerButton = new JButton();
-                    loadImage(chancemakerButton, "resources/grandma.png");
+                    loadImage(chancemakerButton, "resources/chancemaker.png");
                     chancemakerButton.addActionListener(e -> LabelUpdater.updateChancemakerLabel());
                     chancemakerPanel.add(chancemakerButton);
 
@@ -681,7 +681,7 @@ public class GUI
                     fractalEnginePanel.setLayout(new GridLayout(1,3));
 
                     JButton fractalEngineButton = new JButton();
-                    loadImage(fractalEngineButton, "resources/grandma.png");
+                    loadImage(fractalEngineButton, "resources/fractalEngine.png");
                     fractalEngineButton.addActionListener(e -> LabelUpdater.updateFractalEngineLabel());
                     fractalEnginePanel.add(fractalEngineButton);
 
