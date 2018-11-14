@@ -10,30 +10,32 @@ import java.math.RoundingMode;
  * <p>Cursor Building: {@link #cursor()}</p>
  * <p>Grandma Building {@link #grandma()}</p>
  * <p>Farm Building {@link #farm()}</p>
+ * <p>Mine Building {@link #mine()}</p>
+ * <p>Factory Building {@link #factory()}</p>
+ * <p>Bank Building {@link #bank()}</p>
+ * <p>Temple Building {@link #temple()}</p>
+ * <p>Wizard Tower Building {@link #wizardTower()}</p>
+ * <p>Shipment Building {@link #shipment()}</p>
+ * <p>Alchemy Lab Building {@link #alchemyLab()}</p>
+ * <p>Portal Building {@link #portal()}</p>
+ * <p>Time Machine Building {@link #timeMachine()}</p>
+ * <p>Antimatter Condenser Building {@link #antimatterCondenser()}</p>
+ * <p>Prism Building {@link #prism()}</p>
+ * <p>Chancemaker Building {@link #chancemaker()}</p>
+ * <p>Fractal Engine Building {@link #fractalEngine()}</p>
  *
  * @author Nicklas Lydersen
  * @since 1.0.2
  */
 class Buildings {
 
-    /**
-     * This integer is holding the amount of auto clicks the player has.
-     */
+    static BigInteger playerClicks = new BigInteger("1");
     private static BigDecimal totalCookiesPerSecond;
     private static BigDecimal buildingCostMultiplier;
 
     //----- Cursor -----
-    /**
-     * This defines the Cursor Power.
-     */
     static BigDecimal cursorPower;
-    /**
-     * This defines the amount the player has of Cursor.
-     */
     static int cursorAmount;
-    /**
-     * This defines the cost of the Cursor.
-     */
     static BigInteger cursorCost;
 
     //----- Grandma -----
@@ -112,7 +114,7 @@ class Buildings {
     static BigInteger fractalEngineCost;
 
     /**
-     * Setting all the varibales to their start values.
+     * Setting all the variables to their start values.
      *
      * @since 1.0.2
      */
@@ -238,7 +240,6 @@ class Buildings {
     private static void setTotalCookiesPerSecond() {
         //----- Cursor -----
         totalCookiesPerSecond = new BigDecimal(cursorAmount).multiply(cursorPower);
-        System.out.println(totalCookiesPerSecond);
 
         //----- Grandma -----
         totalCookiesPerSecond = totalCookiesPerSecond.add(new BigDecimal(grandmaAmount).multiply(grandmaPower));
