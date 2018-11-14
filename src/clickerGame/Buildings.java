@@ -5,7 +5,6 @@ import java.math.BigInteger;
 import java.math.RoundingMode;
 
 /**
- *
  * This class is responsible for creating the buildings and upgrading them, while keeping track of the total per second.
  *
  * <p>Cursor Building: {@link #cursor()}</p>
@@ -114,10 +113,10 @@ class Buildings {
 
     /**
      * Setting all the varibales to their start values.
+     *
      * @since 1.0.2
      */
-    Buildings()
-    {
+    Buildings() {
         totalCookiesPerSecond = new BigDecimal("0");
         buildingCostMultiplier = new BigDecimal("1.15");
 
@@ -206,26 +205,21 @@ class Buildings {
     /**
      * This is used for when I need the program to sleep different places.
      */
-    private static void sleep()
-    {
-        try
-        {
+    private static void sleep() {
+        try {
             Thread.sleep(1000);
-        }
-        catch (InterruptedException ex)
-        {
+        } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
     }
 
     /**
      * This is where the loop for the auto clickers are running all the auto clickers.
+     *
      * @since 1.0.1
      */
-    static void cookiesPerSecondLoop()
-    {
-        while (GUI.gameRunning)
-        {
+    static void cookiesPerSecondLoop() {
+        while (GUI.gameRunning) {
             sleep();
             GUI.totalCookies = GUI.totalCookies.add(totalCookiesPerSecond);
             LabelUpdater.updateCookies(false);
@@ -233,7 +227,6 @@ class Buildings {
     }
 
     /**
-     *
      * This is were we update the {@link #totalCookiesPerSecond}.
      *
      * <p>Using these towers:</p>
@@ -242,8 +235,7 @@ class Buildings {
      *
      * @since 1.0.2
      */
-    private static void setTotalCookiesPerSecond()
-    {
+    private static void setTotalCookiesPerSecond() {
         //----- Cursor -----
         totalCookiesPerSecond = new BigDecimal(cursorAmount).multiply(cursorPower);
         System.out.println(totalCookiesPerSecond);
@@ -300,10 +292,10 @@ class Buildings {
 
     /**
      * This is were we change the variables of the Cursor building.
+     *
      * @since 1.0.2
      */
-    static void cursor()
-    {
+    static void cursor() {
         cursorAmount++;
         cursorCost = new BigDecimal(cursorCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
@@ -311,114 +303,101 @@ class Buildings {
 
     /**
      * This is were we change the variables of the Grandma building.
+     *
      * @since 1.0.2
      */
-    static void grandma()
-    {
+    static void grandma() {
         grandmaAmount++;
-        grandmaCost = new BigDecimal(grandmaCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        grandmaCost = new BigDecimal(grandmaCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
     /**
      * This is were we change the variables of the Farm building.
+     *
      * @since 1.0.2
      */
-     static void farm()
-    {
+    static void farm() {
         farmAmount++;
-        farmCost = new BigDecimal(farmCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        farmCost = new BigDecimal(farmCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void mine()
-    {
+    static void mine() {
         mineAmount++;
-        mineCost = new BigDecimal(mineCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        mineCost = new BigDecimal(mineCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void factory()
-    {
+    static void factory() {
         factoryAmount++;
-        factoryCost = new BigDecimal(factoryCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        factoryCost = new BigDecimal(factoryCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void bank()
-    {
+    static void bank() {
         bankAmount++;
-        bankCost = new BigDecimal(bankCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        bankCost = new BigDecimal(bankCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void temple()
-    {
+    static void temple() {
         templeAmount++;
-        templeCost = new BigDecimal(templeCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        templeCost = new BigDecimal(templeCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void wizardTower()
-    {
+    static void wizardTower() {
         wizardTowerAmount++;
-        wizardTowerCost = new BigDecimal(wizardTowerCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        wizardTowerCost = new BigDecimal(wizardTowerCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void shipment()
-    {
+    static void shipment() {
         shipmentAmount++;
-        shipmentCost = new BigDecimal(shipmentCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        shipmentCost = new BigDecimal(shipmentCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void alchemyLab()
-    {
+    static void alchemyLab() {
         alchemyLabAmount++;
-        alchemyLabCost = new BigDecimal(alchemyLabCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        alchemyLabCost = new BigDecimal(alchemyLabCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void  portal()
-    {
+    static void portal() {
         portalAmount++;
-        portalCost = new BigDecimal(portalCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        portalCost = new BigDecimal(portalCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void timeMachine()
-    {
+    static void timeMachine() {
         timeMachineAmount++;
-        timeMachineCost = new BigDecimal(timeMachineCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        timeMachineCost = new BigDecimal(timeMachineCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void antimatterCondenser()
-    {
+    static void antimatterCondenser() {
         antimatterCondenserAmount++;
-        antimatterCondenserCost = new BigDecimal(antimatterCondenserCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        antimatterCondenserCost = new BigDecimal(antimatterCondenserCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void prism()
-    {
+    static void prism() {
         prismAmount++;
-        prismCost = new BigDecimal(prismCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        prismCost = new BigDecimal(prismCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void chancemaker()
-    {
+    static void chancemaker() {
         chancemakerAmount++;
-        chancemakerCost = new BigDecimal(chancemakerCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        chancemakerCost = new BigDecimal(chancemakerCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 
-    static void fractalEngine()
-    {
+    static void fractalEngine() {
         fractalEngineAmount++;
-        fractalEngineCost = new BigDecimal(fractalEngineCost).multiply(buildingCostMultiplier).setScale(0,RoundingMode.HALF_EVEN).toBigInteger();
+        fractalEngineCost = new BigDecimal(fractalEngineCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
     }
 

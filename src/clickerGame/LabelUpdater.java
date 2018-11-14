@@ -97,78 +97,56 @@ public class LabelUpdater {
     static JLabel fractalEngineAmountLabel;
     static JLabel fractalEngineCostLabel;
 
-    public LabelUpdater()
-    {
+    public LabelUpdater() {
 
     }
 
     /**
      * This is where I update the clicks label.
+     *
      * @param TF We are using this boolean to define if it's just for updating the label or if it's an actual player click. <p>true for click and false for updating.</p>
      * @since 1.0.1
      */
-    static void updateCookies(boolean TF)
-    {
+    static void updateCookies(boolean TF) {
         if (TF) {
 
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Clicker.playerClicks));
         }
         System.out.println(GUI.totalCookies);
-        if(GUI.totalCookies.compareTo(new BigDecimal("1000000")) < 0)
-        {
+        if (GUI.totalCookies.compareTo(new BigDecimal("1000000")) < 0) {
             cookies.setText(GUI.totalCookies.setScale(0, RoundingMode.DOWN).toString() + " Cookies");
-        }
-        else if (GUI.totalCookies.compareTo(new BigDecimal("1000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000")) < 0)
-        {
+        } else if (GUI.totalCookies.compareTo(new BigDecimal("1000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000")) < 0) {
             cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million Cookies");
-        }
-        else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000")) < 0)
-        {
+        } else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000")) < 0) {
             cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion Cookies");
-        }
-        else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000")) < 0)
-        {
+        } else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000")) < 0) {
             cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000"), 3, RoundingMode.HALF_EVEN) + " Trillion Cookies");
-        }
-        else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000")) < 0)
-        {
+        } else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000")) < 0) {
             cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + "  Quadrillion Cookies");
-        }
-        else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000000")) < 0)
-        {
+        } else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000000")) < 0) {
             cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + " Quintillion Cookies");
         }
     }
 
     /**
      * We are using this method for defining when the cost needs to be switch to 1 million etc, instead of 1,000,000.
-     * @param costLabel The buildings cost label that needs to be updated.
+     *
+     * @param costLabel    The buildings cost label that needs to be updated.
      * @param costBuilding The buildings cost value.
-     * @param string The buildings name.
+     * @param string       The buildings name.
      */
     private static void updateLabel(JLabel costLabel, BigInteger costBuilding, String string) {
-        if (costBuilding.compareTo(new BigInteger("1000000")) < 0)
-        {
+        if (costBuilding.compareTo(new BigInteger("1000000")) < 0) {
             costLabel.setText(string + " Cost = " + costBuilding.toString());
-        }
-        else if (costBuilding.compareTo(new BigInteger("1000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000")) < 0)
-        {
+        } else if (costBuilding.compareTo(new BigInteger("1000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000")) < 0) {
             costLabel.setText(string + " Cost = " + new BigDecimal(costBuilding).divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
-        }
-        else if (costBuilding.compareTo(new BigInteger("1000000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000000")) < 0)
-        {
+        } else if (costBuilding.compareTo(new BigInteger("1000000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000000")) < 0) {
             costLabel.setText(string + " Cost = " + new BigDecimal(costBuilding).divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
-        }
-        else if (costBuilding.compareTo(new BigInteger("1000000000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000000000")) < 0)
-        {
+        } else if (costBuilding.compareTo(new BigInteger("1000000000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000000000")) < 0) {
             costLabel.setText(string + " Cost = " + new BigDecimal(costBuilding).divide(new BigDecimal("1000000000000"), 3, RoundingMode.HALF_EVEN) + " Trillion");
-        }
-        else if (costBuilding.compareTo(new BigInteger("1000000000000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000000000000")) < 0)
-        {
+        } else if (costBuilding.compareTo(new BigInteger("1000000000000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000000000000")) < 0) {
             costLabel.setText(string + " Cost = " + new BigDecimal(costBuilding).divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + "  Quadrillion");
-        }
-        else if (costBuilding.compareTo(new BigInteger("1000000000000000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000000000000000")) < 0)
-        {
+        } else if (costBuilding.compareTo(new BigInteger("1000000000000000000")) >= 0 && costBuilding.compareTo(new BigInteger("1000000000000000000000")) < 0) {
             costLabel.setText(string + " Cost = " + new BigDecimal(costBuilding).divide(new BigDecimal("1000000000000000000"), 3, RoundingMode.HALF_EVEN) + " Quintillion");
         }
 
@@ -176,222 +154,191 @@ public class LabelUpdater {
 
     /**
      * This is where the labels for Arrow Clicker is updated.
+     *
      * @since 1.0.1
      */
-    static void updateCursorLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.cursorCost)) >= 0)
-        {
+    static void updateCursorLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.cursorCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.cursorCost.negate()));
             updateCookies(false);
             Buildings.cursor();
             cursorPowerLabel.setText("Cursor Power = " + Buildings.cursorPower);
             cursorAmountLabel.setText("Cursor Amount = " + Buildings.cursorAmount);
-            updateLabel(cursorCostLabel,Buildings.cursorCost,"Cursor");
+            updateLabel(cursorCostLabel, Buildings.cursorCost, "Cursor");
         }
     }
 
     /**
      * @since 1.0.2
      */
-    static void updateGrandmaLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.grandmaCost)) >= 0)
-        {
+    static void updateGrandmaLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.grandmaCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.grandmaCost.negate()));
             updateCookies(false);
             Buildings.grandma();
             grandmaPowerLabel.setText("Grandma Power = " + Buildings.grandmaPower);
             grandmaAmountLabel.setText("Grandma Amount = " + Buildings.grandmaAmount);
-            updateLabel(grandmaCostLabel,Buildings.grandmaCost,"Grandma");
+            updateLabel(grandmaCostLabel, Buildings.grandmaCost, "Grandma");
         }
     }
 
     /**
      * @since 1.0.2
      */
-    static void updateFarmLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.farmCost)) >= 0)
-        {
+    static void updateFarmLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.farmCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.farmCost.negate()));
             updateCookies(false);
             Buildings.farm();
             farmPowerLabel.setText("Farm Power = " + Buildings.farmPower);
             farmAmountLabel.setText("Farm Amount = " + Buildings.farmAmount);
-            updateLabel(farmCostLabel,Buildings.farmCost, "Farm");
+            updateLabel(farmCostLabel, Buildings.farmCost, "Farm");
         }
     }
 
     /**
      * @since 1.0.2
      */
-    static void updateMineLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.mineCost)) >= 0)
-        {
+    static void updateMineLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.mineCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.mineCost.negate()));
             updateCookies(false);
             Buildings.mine();
             minePowerLabel.setText("Mine Power = " + Buildings.minePower);
             mineAmountLabel.setText("Mine Amount = " + Buildings.mineAmount);
-            updateLabel(mineCostLabel,Buildings.mineCost,"Mine");
+            updateLabel(mineCostLabel, Buildings.mineCost, "Mine");
         }
     }
 
-    static void updateFactoryLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.factoryCost)) >= 0)
-        {
+    static void updateFactoryLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.factoryCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.factoryCost.negate()));
             updateCookies(false);
             Buildings.factory();
             factoryPowerLabel.setText("Factory Power = " + Buildings.factoryPower);
             factoryAmountLabel.setText("Factory Amount = " + Buildings.factoryAmount);
-            updateLabel(factoryCostLabel,Buildings.factoryCost,"Factory");
+            updateLabel(factoryCostLabel, Buildings.factoryCost, "Factory");
         }
     }
 
-    static void updateBankLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.bankCost)) >= 0)
-        {
+    static void updateBankLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.bankCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.bankCost.negate()));
             updateCookies(false);
             Buildings.bank();
             bankPowerLabel.setText("Bank Power = " + Buildings.bankPower);
             bankAmountLabel.setText("Bank Amount = " + Buildings.bankAmount);
-            updateLabel(bankCostLabel,Buildings.bankCost,"Bank");
+            updateLabel(bankCostLabel, Buildings.bankCost, "Bank");
         }
     }
 
-    static void updateTempleLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.templeCost)) >= 0)
-        {
+    static void updateTempleLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.templeCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.templeCost.negate()));
             updateCookies(false);
             Buildings.temple();
             templePowerLabel.setText("Temple Power = " + Buildings.templePower);
             templeAmountLabel.setText("Temple Amount = " + Buildings.templeAmount);
-            updateLabel(templeCostLabel,Buildings.templeCost,"Temple");
+            updateLabel(templeCostLabel, Buildings.templeCost, "Temple");
         }
     }
 
-    static void updateWizardTowerLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.wizardTowerCost)) >= 0)
-        {
+    static void updateWizardTowerLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.wizardTowerCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.wizardTowerCost.negate()));
             updateCookies(false);
             Buildings.wizardTower();
             wizardTowerPowerLabel.setText("WT Power = " + Buildings.wizardTowerPower);
             wizardTowerAmountLabel.setText("WT Amount = " + Buildings.wizardTowerAmount);
-            updateLabel(wizardTowerCostLabel,Buildings.wizardTowerCost,"WT");
+            updateLabel(wizardTowerCostLabel, Buildings.wizardTowerCost, "WT");
         }
     }
 
-    static void updateShipmentLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.shipmentCost)) >= 0)
-        {
+    static void updateShipmentLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.shipmentCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.shipmentCost.negate()));
             updateCookies(false);
             Buildings.shipment();
             shipmentPowerLabel.setText("Shipment Power = " + Buildings.shipmentPower);
             shipmentAmountLabel.setText("Shipment Amount = " + Buildings.shipmentAmount);
-            updateLabel(shipmentCostLabel,Buildings.shipmentCost,"Shipment");
+            updateLabel(shipmentCostLabel, Buildings.shipmentCost, "Shipment");
         }
     }
 
-    static void updateAlchemyLabLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.alchemyLabCost)) >= 0)
-        {
+    static void updateAlchemyLabLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.alchemyLabCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.alchemyLabCost.negate()));
             updateCookies(false);
             Buildings.alchemyLab();
             alchemyLabPowerLabel.setText("AL Power = " + Buildings.alchemyLabPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
             alchemyLabAmountLabel.setText("AL Amount = " + Buildings.alchemyLabAmount);
-            updateLabel(alchemyLabCostLabel,Buildings.alchemyLabCost,"AL");
+            updateLabel(alchemyLabCostLabel, Buildings.alchemyLabCost, "AL");
         }
     }
 
-    static void updatePortalLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.portalCost)) >= 0)
-        {
+    static void updatePortalLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.portalCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.portalCost.negate()));
             updateCookies(false);
             Buildings.portal();
             portalPowerLabel.setText("Portal Power = " + Buildings.portalPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
             portalAmountLabel.setText("Portal Amount = " + Buildings.portalAmount);
-            updateLabel(portalCostLabel,Buildings.portalCost,"Portal");
+            updateLabel(portalCostLabel, Buildings.portalCost, "Portal");
         }
     }
 
-    static void updateTimeMachineLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.timeMachineCost)) >= 0)
-        {
+    static void updateTimeMachineLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.timeMachineCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.timeMachineCost.negate()));
             updateCookies(false);
             Buildings.timeMachine();
             timeMachinePowerLabel.setText("TM Power = " + Buildings.timeMachinePower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
             timeMachineAmountLabel.setText("TM Amount = " + Buildings.timeMachineAmount);
-            updateLabel(timeMachineCostLabel,Buildings.timeMachineCost,"TM");
+            updateLabel(timeMachineCostLabel, Buildings.timeMachineCost, "TM");
         }
     }
 
-    static void updateAntimatterCondeserLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.antimatterCondenserCost)) >= 0)
-        {
+    static void updateAntimatterCondeserLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.antimatterCondenserCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.antimatterCondenserCost.negate()));
             updateCookies(false);
             Buildings.antimatterCondenser();
             antimatterCondenserPowerLabel.setText("AC Power = " + Buildings.antimatterCondenserPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
             antimatterCondenserAmountLabel.setText("AC Amount = " + Buildings.antimatterCondenserAmount);
-            updateLabel(antimatterCondenserCostLabel,Buildings.antimatterCondenserCost,"AC");
+            updateLabel(antimatterCondenserCostLabel, Buildings.antimatterCondenserCost, "AC");
         }
     }
 
-    static void updatePrismLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.prismCost)) >= 0)
-        {
+    static void updatePrismLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.prismCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.prismCost.negate()));
             updateCookies(false);
             Buildings.prism();
             prismPowerLabel.setText("Prism Power = " + Buildings.prismPower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
             prismAmountLabel.setText("Prism Amount = " + Buildings.prismAmount);
-            updateLabel(prismCostLabeL,Buildings.prismCost,"Prism");
+            updateLabel(prismCostLabeL, Buildings.prismCost, "Prism");
         }
     }
 
-    static void updateChancemakerLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.chancemakerCost)) >= 0)
-        {
+    static void updateChancemakerLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.chancemakerCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.chancemakerCost.negate()));
             updateCookies(false);
             Buildings.chancemaker();
             chancemakerPowerLabel.setText("CM Power = " + Buildings.chancemakerPower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
             chancemakerAmountLabel.setText("CM Amount = " + Buildings.chancemakerAmount);
-            updateLabel(chancemakeCostLabel,Buildings.chancemakerCost,"CM");
+            updateLabel(chancemakeCostLabel, Buildings.chancemakerCost, "CM");
         }
     }
 
-    static void updateFractalEngineLabel()
-    {
-        if(GUI.totalCookies.compareTo(new BigDecimal(Buildings.fractalEngineCost)) >= 0)
-        {
+    static void updateFractalEngineLabel() {
+        if (GUI.totalCookies.compareTo(new BigDecimal(Buildings.fractalEngineCost)) >= 0) {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.fractalEngineCost.negate()));
             updateCookies(false);
             Buildings.fractalEngine();
             fractalEnginePowerLabel.setText("FE Power = " + Buildings.fractalEnginePower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
             fractalEngineAmountLabel.setText("FE Amount = " + Buildings.fractalEngineAmount);
-            updateLabel(fractalEngineCostLabel,Buildings.fractalEngineCost,"FE");
+            updateLabel(fractalEngineCostLabel, Buildings.fractalEngineCost, "FE");
         }
     }
 
