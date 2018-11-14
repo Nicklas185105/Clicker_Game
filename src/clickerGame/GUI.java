@@ -7,7 +7,6 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 /**
  * This is the class where I build the GUI for the game.
@@ -15,25 +14,24 @@ import java.math.BigInteger;
  * @author Nicklas Lydersen
  * @since 1.0.1
  */
-public class GUI
+class GUI
 {
     //Here I'm making my variables
     /**
      * This integer is holding the amount of Cookies the player have.
      */
-    public static BigDecimal totalCookies = new BigDecimal("0");
-    public static BigInteger clickPower = new BigInteger("1");
+    static BigDecimal totalCookies = new BigDecimal("0");
     /**
      * Boolean for the Auto Clicker Loop, so it can run when the game is running.
      */
-    public static boolean gameRunning;
+    static boolean gameRunning;
 
     /**
      * This is where I make the frame, and all the other important things.
      * @since 1.0.1
      * @
      */
-    public GUI()
+    GUI()
     {
         //totalCookies = totalCookies.add(new BigDecimal("999998"));
         new Clicker();

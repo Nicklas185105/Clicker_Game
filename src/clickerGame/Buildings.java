@@ -15,7 +15,7 @@ import java.math.RoundingMode;
  * @author Nicklas Lydersen
  * @since 1.0.2
  */
-public class Buildings {
+class Buildings {
 
     /**
      * This integer is holding the amount of auto clicks the player has.
@@ -205,13 +205,12 @@ public class Buildings {
 
     /**
      * This is used for when I need the program to sleep different places.
-     * @param n Is the integer for how long the program needs to sleep. n = 1000 <=> 1 second
      */
-    private static void sleep(int n)
+    private static void sleep()
     {
         try
         {
-            Thread.sleep(n);
+            Thread.sleep(1000);
         }
         catch (InterruptedException ex)
         {
@@ -227,7 +226,7 @@ public class Buildings {
     {
         while (GUI.gameRunning)
         {
-            sleep(1000);
+            sleep();
             GUI.totalCookies = GUI.totalCookies.add(totalCookiesPerSecond);
             LabelUpdater.updateCookies(false);
         }

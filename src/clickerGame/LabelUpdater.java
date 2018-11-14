@@ -16,9 +16,6 @@ public class LabelUpdater {
     //----- Clicks Labels -----
     static JLabel cookies;
     static JLabel cookiesPerSecond;
-    static JLabel clickPowerLabel;
-    static JLabel clickPowerCostLabel;
-    static JLabel clickPowerLevelLabel;
 
     //----- Cursor Labels -----
     static JLabel cursorPowerLabel;
@@ -140,35 +137,6 @@ public class LabelUpdater {
         else if (GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000000000000000")) < 0)
         {
             cookies.setText(GUI.totalCookies.divide(new BigDecimal("1000000000000000"), 3, RoundingMode.HALF_EVEN) + " Quintillion Cookies");
-        }
-    }
-
-    /**
-     * This is updating the Total Clicks variable and the Label to that variable. This is also where we are updating clickPower of the player,
-     * while updating the labels for the different variables in clickPower.
-     * @since 1.0.1
-     */
-    static void updateClickPowerLabel()
-    {
-        if(GUI.totalCookies.compareTo(BigDecimal.valueOf(Clicker.clickPowerCost)) >= 0 && Clicker.clickPowerLevel <= 99)
-        {
-            GUI.totalCookies = GUI.totalCookies.add(BigDecimal.valueOf(Clicker.clickPowerCost).negate());
-            updateCookies(false);
-            Clicker.clickPower();
-            clickPowerLabel.setText("Click Power = " + Clicker.playerClicks);
-            clickPowerLevelLabel.setText("Level = " + Clicker.clickPowerLevel + " / 100");
-            if(Clicker.clickPowerCost < 1000000)
-            {
-                clickPowerCostLabel.setText("Click Power Cost = " + Integer.toString(Math.toIntExact(Clicker.clickPowerCost)));
-            }
-            else if (Clicker.clickPowerCost > 1000000 && Clicker.clickPowerCost < 1653669)
-            {
-                clickPowerCostLabel.setText("Click Power Cost = " + Double.toString((double) Math.round((Clicker.clickPowerCost / 1000000d) * 1000d) / 1000d) + " Million");
-            }
-            else
-            {
-                clickPowerCostLabel.setText(" Click Power Cost = Level Maxed");
-            }
         }
     }
 
