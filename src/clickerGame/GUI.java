@@ -28,9 +28,9 @@ class GUI {
      * @since 1.0.1
      */
     GUI() {
-        //totalCookies = totalCookies.add(new BigDecimal("999998"));
-        new Upgrades();
+        totalCookies = totalCookies.add(new BigDecimal("1000"));
         new Buildings();
+        new Upgrades();
         makeFrame();
     }
 
@@ -41,7 +41,7 @@ class GUI {
      * @param path   Is the path directory of the image, that is the desired icon for the button.
      * @since 1.0.1
      */
-    private void loadImage(JButton button, String path) {
+    static void loadImage(JButton button, String path) {
         try {
             button.setIcon(new ImageIcon(path));
         } catch (Exception ex) {
@@ -106,7 +106,7 @@ class GUI {
         firstPanel.add(labelPanel);
 
         JButton clickerButton = new JButton();
-        loadImage(clickerButton, "resources/cookie.png");
+        loadImage(clickerButton, "resources/Buildings/cookie.png");
         clickerButton.addActionListener(e -> LabelUpdater.updateCookies(true));
         firstPanel.add(clickerButton);
 
@@ -116,7 +116,29 @@ class GUI {
         //----- Second Panel -----
         JPanel secondPanel = new JPanel();
         secondPanel.setBorder(new LineBorder(Color.black, 1, false));
-        secondPanel.setLayout(new GridLayout(1, 1));
+        secondPanel.setLayout(new GridLayout(2,1));
+
+        //----- Upgrade Scroll Pane -----
+        JScrollPane upgradeScrollPane = new JScrollPane();
+        upgradeScrollPane.setBorder(new LineBorder(Color.black,1,false));
+
+        //----- Upgrade Panel -----
+        JPanel upgradePanel = new JPanel();
+        upgradePanel.setLayout(new GridLayout(44,5));
+
+        //----- Reinforced index finger -----
+        Upgrades.rifButton = new JButton();
+        loadImage(Upgrades.rifButton, "resources/Upgrades/Cursor/Reinforced index finger.png");
+        Upgrades.rifButton.addActionListener(e -> Upgrades.rif());
+        Upgrades.rifButton.setToolTipText("Test");
+        Upgrades.rifButton.setVisible(false);
+        upgradePanel.add(Upgrades.rifButton);
+
+        //Tilføjer Upgrade Panel ind i Upgrade Scroll Pane
+        upgradeScrollPane.setViewportView(upgradePanel);
+
+        //Tilføjer Upgrade Scroll Pane ind i Second Panel
+        secondPanel.add(upgradeScrollPane);
 
         //Tilføjer Second Panel ind i Main Panel
         mainPanel.add(secondPanel);
@@ -131,7 +153,7 @@ class GUI {
         cursorPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.cursorButton = new JButton();
-        loadImage(LabelUpdater.cursorButton, "resources/cursor.png");
+        loadImage(LabelUpdater.cursorButton, "resources/Buildings/cursor.png");
         LabelUpdater.cursorButton.addActionListener(e -> LabelUpdater.updateCursorLabel());
         LabelUpdater.cursorButton.setToolTipText("<html>Cursor<br>amount: " + Buildings.cursorAmount + "<br>cost: " + Buildings.cursorCost + "<br>power: " + Buildings.cursorPower + "<br>Autoclicks once every 10 seconds.</html>");
         cursorPanel.add(LabelUpdater.cursorButton);
@@ -166,7 +188,7 @@ class GUI {
         grandmaPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.grandmaButton = new JButton();
-        loadImage(LabelUpdater.grandmaButton, "resources/grandma.png");
+        loadImage(LabelUpdater.grandmaButton, "resources/Buildings/grandma.png");
         LabelUpdater.grandmaButton.addActionListener(e -> LabelUpdater.updateGrandmaLabel());
         LabelUpdater.grandmaButton.setToolTipText("<html>Grandma<br>amount: " + Buildings.grandmaAmount + "<br>cost: " + Buildings.grandmaCost + "<br>power: " + Buildings.grandmaPower + "<br>A nice grandma to bake more cookies.</html>");
         grandmaPanel.add(LabelUpdater.grandmaButton);
@@ -201,7 +223,7 @@ class GUI {
         farmPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.farmButton = new JButton();
-        loadImage(LabelUpdater.farmButton, "resources/farm.png");
+        loadImage(LabelUpdater.farmButton, "resources/Buildings/farm.png");
         LabelUpdater.farmButton.addActionListener(e -> LabelUpdater.updateFarmLabel());
         LabelUpdater.farmButton.setToolTipText("<html>Farm<br>amount: " + Buildings.farmAmount + "<br>cost: " + Buildings.farmCost + "<br>power: " + Buildings.farmPower + "<br>Grows cookie plants from cookie seeds.</html>");
         farmPanel.add(LabelUpdater.farmButton);
@@ -236,7 +258,7 @@ class GUI {
         minePanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.mineButton = new JButton();
-        loadImage(LabelUpdater.mineButton, "resources/mine.png");
+        loadImage(LabelUpdater.mineButton, "resources/Buildings/mine.png");
         LabelUpdater.mineButton.addActionListener(e -> LabelUpdater.updateMineLabel());
         LabelUpdater.mineButton.setToolTipText("<html>Mine<br>amount: " + Buildings.mineAmount + "<br>cost: " + Buildings.mineCost + "<br>power: " + Buildings.minePower + "<br>Mines out cookie dough and chocolate chips.</html>");
         minePanel.add(LabelUpdater.mineButton);
@@ -271,7 +293,7 @@ class GUI {
         factoryPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.factoryButton = new JButton();
-        loadImage(LabelUpdater.factoryButton, "resources/factory.png");
+        loadImage(LabelUpdater.factoryButton, "resources/Buildings/factory.png");
         LabelUpdater.factoryButton.addActionListener(e -> LabelUpdater.updateFactoryLabel());
         LabelUpdater.factoryButton.setToolTipText("<html>Factory<br>amount: " + Buildings.factoryAmount + "<br>cost: " + Buildings.factoryCost + "<br>power: " + Buildings.factoryPower + "<br>Produces large quantities of cookies.</html>");
         factoryPanel.add(LabelUpdater.factoryButton);
@@ -306,7 +328,7 @@ class GUI {
         bankPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.bankButton = new JButton();
-        loadImage(LabelUpdater.bankButton, "resources/bank.png");
+        loadImage(LabelUpdater.bankButton, "resources/Buildings/bank.png");
         LabelUpdater.bankButton.addActionListener(e -> LabelUpdater.updateBankLabel());
         LabelUpdater.bankButton.setToolTipText("<html>Bank<br>amount: " + Buildings.bankAmount + "<br>cost: " + Buildings.bankCost + "<br>power: " + Buildings.bankPower + "<br>Generates cookies from interest.</html>");
         bankPanel.add(LabelUpdater.bankButton);
@@ -341,7 +363,7 @@ class GUI {
         templePanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.templeButton = new JButton();
-        loadImage(LabelUpdater.templeButton, "resources/temple.png");
+        loadImage(LabelUpdater.templeButton, "resources/Buildings/temple.png");
         LabelUpdater.templeButton.addActionListener(e -> LabelUpdater.updateTempleLabel());
         LabelUpdater.templeButton.setToolTipText("<html>Temple<br>amount: " + Buildings.templeAmount + "<br>cost: " + Buildings.templeCost + "<br>power: " + Buildings.templePower + "<br>Full of precious, ancient chocolate.</html>");
         templePanel.add(LabelUpdater.templeButton);
@@ -376,7 +398,7 @@ class GUI {
         wizardTowerPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.wizardTowerButton = new JButton();
-        loadImage(LabelUpdater.wizardTowerButton, "resources/wizardTower.png");
+        loadImage(LabelUpdater.wizardTowerButton, "resources/Buildings/wizardTower.png");
         LabelUpdater.wizardTowerButton.addActionListener(e -> LabelUpdater.updateWizardTowerLabel());
         LabelUpdater.wizardTowerButton.setToolTipText("<html>Wizard Tower<br>amount: " + Buildings.wizardTowerAmount + "<br>cost: " + Buildings.wizardTowerCost + "<br>power: " + Buildings.wizardTowerPower + "<br>Summons cookies with magic spells.</html>");
         wizardTowerPanel.add(LabelUpdater.wizardTowerButton);
@@ -411,7 +433,7 @@ class GUI {
         shipmentPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.shipmentButton = new JButton();
-        loadImage(LabelUpdater.shipmentButton, "resources/shipment.png");
+        loadImage(LabelUpdater.shipmentButton, "resources/Buildings/shipment.png");
         LabelUpdater.shipmentButton.addActionListener(e -> LabelUpdater.updateShipmentLabel());
         LabelUpdater.shipmentButton.setToolTipText("<html>Shipment<br>amount: " + Buildings.shipmentAmount + "<br>cost: " + Buildings.shipmentCost + "<br>power: " + Buildings.shipmentPower + "<br>Brings in fresh cookies from the cookie planet.</html>");
         shipmentPanel.add(LabelUpdater.shipmentButton);
@@ -446,7 +468,7 @@ class GUI {
         alchemyLabPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.alchemyLabButton = new JButton();
-        loadImage(LabelUpdater.alchemyLabButton, "resources/alchemyLab.png");
+        loadImage(LabelUpdater.alchemyLabButton, "resources/Buildings/alchemyLab.png");
         LabelUpdater.alchemyLabButton.addActionListener(e -> LabelUpdater.updateAlchemyLabLabel());
         LabelUpdater.alchemyLabButton.setToolTipText("<html>Alchemy Lab<br>amount: " + Buildings.alchemyLabAmount + "<br>cost: " + Buildings.alchemyLabCost + "<br>power: " + Buildings.alchemyLabPower + "<br>Turns gold into cookies!</html>");
         alchemyLabPanel.add(LabelUpdater.alchemyLabButton);
@@ -481,7 +503,7 @@ class GUI {
         portalPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.portalButton = new JButton();
-        loadImage(LabelUpdater.portalButton, "resources/portal.png");
+        loadImage(LabelUpdater.portalButton, "resources/Buildings/portal.png");
         LabelUpdater.portalButton.addActionListener(e -> LabelUpdater.updatePortalLabel());
         LabelUpdater.portalButton.setToolTipText("<html>Portal<br>amount: " + Buildings.portalAmount + "<br>cost: " + Buildings.portalCost + "<br>power: " + Buildings.portalPower + "<br>Opens the door to the Cookieverse.</html>");
         portalPanel.add(LabelUpdater.portalButton);
@@ -516,7 +538,7 @@ class GUI {
         timeMachinePanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.timeMachineButton = new JButton();
-        loadImage(LabelUpdater.timeMachineButton, "resources/timeMachine.png");
+        loadImage(LabelUpdater.timeMachineButton, "resources/Buildings/timeMachine.png");
         LabelUpdater.timeMachineButton.addActionListener(e -> LabelUpdater.updateTimeMachineLabel());
         LabelUpdater.timeMachineButton.setToolTipText("<html>Time Machine<br>amount: " + Buildings.timeMachineAmount + "<br>cost: " + Buildings.timeMachineCost + "<br>power: " + Buildings.timeMachinePower + "<br>Brings cookies from the past, before they were even eaten.</html>");
         timeMachinePanel.add(LabelUpdater.timeMachineButton);
@@ -551,7 +573,7 @@ class GUI {
         antimatterCondenserPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.antimatterCondenserButton = new JButton();
-        loadImage(LabelUpdater.antimatterCondenserButton, "resources/antimatterCondenser.png");
+        loadImage(LabelUpdater.antimatterCondenserButton, "resources/Buildings/antimatterCondenser.png");
         LabelUpdater.antimatterCondenserButton.addActionListener(e -> LabelUpdater.updateAntimatterCondeserLabel());
         LabelUpdater.antimatterCondenserButton.setToolTipText("<html>Antimatter Condenser<br>amount: " + Buildings.antimatterCondenserAmount + "<br>cost: " + Buildings.antimatterCondenserCost + "<br>power: " + Buildings.antimatterCondenserPower + "<br>Condenses the antimatter in the universe into cookies.</html>");
         antimatterCondenserPanel.add(LabelUpdater.antimatterCondenserButton);
@@ -586,7 +608,7 @@ class GUI {
         prismPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.prismButton = new JButton();
-        loadImage(LabelUpdater.prismButton, "resources/prism.png");
+        loadImage(LabelUpdater.prismButton, "resources/Buildings/prism.png");
         LabelUpdater.prismButton.addActionListener(e -> LabelUpdater.updatePrismLabel());
         LabelUpdater.prismButton.setToolTipText("<html>Prism<br>amount: " + Buildings.prismAmount + "<br>cost: " + Buildings.prismCost + "<br>power: " + Buildings.prismPower + "<br>Converts light itself into cookies.</html>");
         prismPanel.add(LabelUpdater.prismButton);
@@ -621,7 +643,7 @@ class GUI {
         chancemakerPanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.chancemakerButton = new JButton();
-        loadImage(LabelUpdater.chancemakerButton, "resources/chancemaker.png");
+        loadImage(LabelUpdater.chancemakerButton, "resources/Buildings/chancemaker.png");
         LabelUpdater.chancemakerButton.addActionListener(e -> LabelUpdater.updateChancemakerLabel());
         LabelUpdater.chancemakerButton.setToolTipText("<html>Chancemaker<br>amount: " + Buildings.chancemakerAmount + "<br>cost: " + Buildings.chancemakerCost + "<br>power: " + Buildings.chancemakerPower + "<br>Generates cookies out of thin air through sheer luck.</html>");
         chancemakerPanel.add(LabelUpdater.chancemakerButton);
@@ -656,7 +678,7 @@ class GUI {
         fractalEnginePanel.setLayout(new GridLayout(1, 3));
 
         LabelUpdater.fractalEngineButton = new JButton();
-        loadImage(LabelUpdater.fractalEngineButton, "resources/fractalEngine.png");
+        loadImage(LabelUpdater.fractalEngineButton, "resources/Buildings/fractalEngine.png");
         LabelUpdater.fractalEngineButton.addActionListener(e -> LabelUpdater.updateFractalEngineLabel());
         LabelUpdater.fractalEngineButton.setToolTipText("<html>Fractal Engine<br>amount: " + Buildings.fractalEngineAmount + "<br>cost: " + Buildings.fractalEngineCost + "<br>power: " + Buildings.fractalEnginePower + "<br>Turns cookies into even more cookies.</html>");
         fractalEnginePanel.add(LabelUpdater.fractalEngineButton);

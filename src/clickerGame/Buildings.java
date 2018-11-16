@@ -237,7 +237,7 @@ class Buildings {
      *
      * @since 1.0.2
      */
-    private static void setTotalCookiesPerSecond() {
+    static void setTotalCookiesPerSecond() {
         //----- Cursor -----
         totalCookiesPerSecond = new BigDecimal(cursorAmount).multiply(cursorPower);
 
@@ -300,6 +300,10 @@ class Buildings {
         cursorAmount++;
         cursorCost = new BigDecimal(cursorCost).multiply(buildingCostMultiplier).setScale(0, RoundingMode.HALF_EVEN).toBigInteger();
         setTotalCookiesPerSecond();
+        if (cursorAmount > 0)
+        {
+            Upgrades.rifButton.setVisible(true);
+        }
     }
 
     /**

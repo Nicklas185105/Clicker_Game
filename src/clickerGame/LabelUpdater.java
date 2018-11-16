@@ -128,7 +128,6 @@ public class LabelUpdater {
 
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.playerClicks));
         }
-        System.out.println(GUI.totalCookies);
         if (GUI.totalCookies.compareTo(new BigDecimal("1000000")) < 0) {
             cookies.setText(GUI.totalCookies.setScale(0, RoundingMode.DOWN).toString() + " Cookies");
         } else if (GUI.totalCookies.compareTo(new BigDecimal("1000000")) >= 0 && GUI.totalCookies.compareTo(new BigDecimal("1000000000")) < 0) {
