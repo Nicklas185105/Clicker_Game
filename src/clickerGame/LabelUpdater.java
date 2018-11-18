@@ -178,9 +178,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.cursorCost.negate()));
             updateCookies(false);
             Buildings.cursor();
-            cursorPowerLabel.setText("Cursor Power = " + Buildings.cursorPower);
-            cursorAmountLabel.setText("Cursor Amount = " + Buildings.cursorAmount);
-            updateLabel(cursorCostLabel, Buildings.cursorCost, "Cursor");
+            //cursorPowerLabel.setText("Cursor Power = " + Buildings.cursorPower);
+            //cursorAmountLabel.setText("Cursor Amount = " + Buildings.cursorAmount);
+            //updateLabel(cursorCostLabel, Buildings.cursorCost, "Cursor");
+            cursorButton.setText("Cursor                                     " + Buildings.cursorAmount);
             cursorButton.setToolTipText("<html>Cursor<br>amount: " + Buildings.cursorAmount + "<br>cost: " + Buildings.cursorCost + "<br>power: " + Buildings.cursorPower + "<br>Autoclicks once every 10 seconds.</html>");
         }
     }
@@ -193,9 +194,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.grandmaCost.negate()));
             updateCookies(false);
             Buildings.grandma();
-            grandmaPowerLabel.setText("Grandma Power = " + Buildings.grandmaPower);
-            grandmaAmountLabel.setText("Grandma Amount = " + Buildings.grandmaAmount);
-            updateLabel(grandmaCostLabel, Buildings.grandmaCost, "Grandma");
+            //grandmaPowerLabel.setText("Grandma Power = " + Buildings.grandmaPower);
+            //grandmaAmountLabel.setText("Grandma Amount = " + Buildings.grandmaAmount);
+            //updateLabel(grandmaCostLabel, Buildings.grandmaCost, "Grandma");
+            grandmaButton.setText("Grandma                                 " + Buildings.grandmaAmount);
             grandmaButton.setToolTipText("<html>Grandma<br>amount: " + Buildings.grandmaAmount + "<br>cost: " + Buildings.grandmaCost + "<br>power: " + Buildings.grandmaPower + "<br>A nice grandma to bake more cookies.</html>");
         }
     }
@@ -208,9 +210,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.farmCost.negate()));
             updateCookies(false);
             Buildings.farm();
-            farmPowerLabel.setText("Farm Power = " + Buildings.farmPower);
-            farmAmountLabel.setText("Farm Amount = " + Buildings.farmAmount);
-            updateLabel(farmCostLabel, Buildings.farmCost, "Farm");
+            //farmPowerLabel.setText("Farm Power = " + Buildings.farmPower);
+            //farmAmountLabel.setText("Farm Amount = " + Buildings.farmAmount);
+            //updateLabel(farmCostLabel, Buildings.farmCost, "Farm");
+            farmButton.setText("Farm                                        " + Buildings.farmAmount);
             farmButton.setToolTipText("<html>Farm<br>amount: " + Buildings.farmAmount + "<br>cost: " + Buildings.farmCost + "<br>power: " + Buildings.farmPower + "<br>Grows cookie plants from cookie seeds.</html>");
         }
     }
@@ -223,9 +226,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.mineCost.negate()));
             updateCookies(false);
             Buildings.mine();
-            minePowerLabel.setText("Mine Power = " + Buildings.minePower);
-            mineAmountLabel.setText("Mine Amount = " + Buildings.mineAmount);
-            updateLabel(mineCostLabel, Buildings.mineCost, "Mine");
+            //minePowerLabel.setText("Mine Power = " + Buildings.minePower);
+            //mineAmountLabel.setText("Mine Amount = " + Buildings.mineAmount);
+            //updateLabel(mineCostLabel, Buildings.mineCost, "Mine");
+            mineButton.setText("Mine                                         " + Buildings.mineAmount);
             mineButton.setToolTipText("<html>Mine<br>amount: " + Buildings.mineAmount + "<br>cost: " + Buildings.mineCost + "<br>power: " + Buildings.minePower + "<br>Mines out cookie dough and chocolate chips.</html>");
         }
     }
@@ -235,9 +239,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.factoryCost.negate()));
             updateCookies(false);
             Buildings.factory();
-            factoryPowerLabel.setText("Factory Power = " + Buildings.factoryPower);
-            factoryAmountLabel.setText("Factory Amount = " + Buildings.factoryAmount);
-            updateLabel(factoryCostLabel, Buildings.factoryCost, "Factory");
+            //factoryPowerLabel.setText("Factory Power = " + Buildings.factoryPower);
+            //factoryAmountLabel.setText("Factory Amount = " + Buildings.factoryAmount);
+            //updateLabel(factoryCostLabel, Buildings.factoryCost, "Factory");
+            factoryButton.setText("Factory                                    " + Buildings.factoryAmount);
             factoryButton.setToolTipText("<html>Factory<br>amount: " + Buildings.factoryAmount + "<br>cost: " + Buildings.factoryCost + "<br>power: " + Buildings.factoryPower + "<br>Produces large quantities of cookies.</html>");
         }
     }
@@ -247,9 +252,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.bankCost.negate()));
             updateCookies(false);
             Buildings.bank();
-            bankPowerLabel.setText("Bank Power = " + Buildings.bankPower);
-            bankAmountLabel.setText("Bank Amount = " + Buildings.bankAmount);
-            updateLabel(bankCostLabel, Buildings.bankCost, "Bank");
+            //bankPowerLabel.setText("Bank Power = " + Buildings.bankPower);
+            //bankAmountLabel.setText("Bank Amount = " + Buildings.bankAmount);
+            //updateLabel(bankCostLabel, Buildings.bankCost, "Bank");
+            bankButton.setText("Bank                                        " + Buildings.bankAmount);
             bankButton.setToolTipText("<html>Bank<br>amount: " + Buildings.bankAmount + "<br>cost: " + Buildings.bankCost + "<br>power: " + Buildings.bankPower + "<br>Generates cookies from interest.</html>");
         }
     }
@@ -259,9 +265,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.templeCost.negate()));
             updateCookies(false);
             Buildings.temple();
-            templePowerLabel.setText("Temple Power = " + Buildings.templePower);
-            templeAmountLabel.setText("Temple Amount = " + Buildings.templeAmount);
-            updateLabel(templeCostLabel, Buildings.templeCost, "Temple");
+            //templePowerLabel.setText("Temple Power = " + Buildings.templePower);
+            //templeAmountLabel.setText("Temple Amount = " + Buildings.templeAmount);
+            //updateLabel(templeCostLabel, Buildings.templeCost, "Temple");
+            templeButton.setText("Temple                                    " + Buildings.templeAmount);
             templeButton.setToolTipText("<html>Temple<br>amount: " + Buildings.templeAmount + "<br>cost: " + Buildings.templeCost + "<br>power: " + Buildings.templePower + "<br>Full of precious, ancient chocolate.</html>");
         }
     }
@@ -271,9 +278,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.wizardTowerCost.negate()));
             updateCookies(false);
             Buildings.wizardTower();
-            wizardTowerPowerLabel.setText("WT Power = " + Buildings.wizardTowerPower);
-            wizardTowerAmountLabel.setText("WT Amount = " + Buildings.wizardTowerAmount);
-            updateLabel(wizardTowerCostLabel, Buildings.wizardTowerCost, "WT");
+            //wizardTowerPowerLabel.setText("WT Power = " + Buildings.wizardTowerPower);
+            //wizardTowerAmountLabel.setText("WT Amount = " + Buildings.wizardTowerAmount);
+            //updateLabel(wizardTowerCostLabel, Buildings.wizardTowerCost, "WT");
+            wizardTowerButton.setText("Wizard Tower                         " + Buildings.wizardTowerAmount);
             wizardTowerButton.setToolTipText("<html>Wizard Tower<br>amount: " + Buildings.wizardTowerAmount + "<br>cost: " + Buildings.wizardTowerCost + "<br>power: " + Buildings.wizardTowerPower + "<br>Summons cookies with magic spells.</html>");
         }
     }
@@ -283,9 +291,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.shipmentCost.negate()));
             updateCookies(false);
             Buildings.shipment();
-            shipmentPowerLabel.setText("Shipment Power = " + Buildings.shipmentPower);
-            shipmentAmountLabel.setText("Shipment Amount = " + Buildings.shipmentAmount);
-            updateLabel(shipmentCostLabel, Buildings.shipmentCost, "Shipment");
+            //shipmentPowerLabel.setText("Shipment Power = " + Buildings.shipmentPower);
+            //shipmentAmountLabel.setText("Shipment Amount = " + Buildings.shipmentAmount);
+            //updateLabel(shipmentCostLabel, Buildings.shipmentCost, "Shipment");
+            shipmentButton.setText("Shipment                                 " + Buildings.shipmentAmount);
             shipmentButton.setToolTipText("<html>Shipment<br>amount: " + Buildings.shipmentAmount + "<br>cost: " + Buildings.shipmentCost + "<br>power: " + Buildings.shipmentPower + "<br>Brings in fresh cookies from the cookie planet.</html>");
         }
     }
@@ -295,9 +304,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.alchemyLabCost.negate()));
             updateCookies(false);
             Buildings.alchemyLab();
-            alchemyLabPowerLabel.setText("AL Power = " + Buildings.alchemyLabPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
-            alchemyLabAmountLabel.setText("AL Amount = " + Buildings.alchemyLabAmount);
-            updateLabel(alchemyLabCostLabel, Buildings.alchemyLabCost, "AL");
+            //alchemyLabPowerLabel.setText("AL Power = " + Buildings.alchemyLabPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            //alchemyLabAmountLabel.setText("AL Amount = " + Buildings.alchemyLabAmount);
+            //updateLabel(alchemyLabCostLabel, Buildings.alchemyLabCost, "AL");
+            alchemyLabButton.setText("Alchemy Lab                           " + Buildings.alchemyLabAmount);
             alchemyLabButton.setToolTipText("<html>Alchemy Lab<br>amount: " + Buildings.alchemyLabAmount + "<br>cost: " + Buildings.alchemyLabCost + "<br>power: " + Buildings.alchemyLabPower + "<br>Turns gold into cookies!</html>");
         }
     }
@@ -307,9 +317,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.portalCost.negate()));
             updateCookies(false);
             Buildings.portal();
-            portalPowerLabel.setText("Portal Power = " + Buildings.portalPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
-            portalAmountLabel.setText("Portal Amount = " + Buildings.portalAmount);
-            updateLabel(portalCostLabel, Buildings.portalCost, "Portal");
+            //portalPowerLabel.setText("Portal Power = " + Buildings.portalPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            //portalAmountLabel.setText("Portal Amount = " + Buildings.portalAmount);
+            //updateLabel(portalCostLabel, Buildings.portalCost, "Portal");
+            portalButton.setText("Portal                                        " + Buildings.portalAmount);
             portalButton.setToolTipText("<html>Portal<br>amount: " + Buildings.portalAmount + "<br>cost: " + Buildings.portalCost + "<br>power: " + Buildings.portalPower + "<br>Opens the door to the Cookieverse.</html>");
         }
     }
@@ -319,9 +330,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.timeMachineCost.negate()));
             updateCookies(false);
             Buildings.timeMachine();
-            timeMachinePowerLabel.setText("TM Power = " + Buildings.timeMachinePower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
-            timeMachineAmountLabel.setText("TM Amount = " + Buildings.timeMachineAmount);
-            updateLabel(timeMachineCostLabel, Buildings.timeMachineCost, "TM");
+            //timeMachinePowerLabel.setText("TM Power = " + Buildings.timeMachinePower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            //timeMachineAmountLabel.setText("TM Amount = " + Buildings.timeMachineAmount);
+            //updateLabel(timeMachineCostLabel, Buildings.timeMachineCost, "TM");
+            timeMachineButton.setText("Time Machine                          " + Buildings.timeMachineAmount);
             timeMachineButton.setToolTipText("<html>Time Machine<br>amount: " + Buildings.timeMachineAmount + "<br>cost: " + Buildings.timeMachineCost + "<br>power: " + Buildings.timeMachinePower + "<br>Brings cookies from the past, before they were even eaten.</html>");
         }
     }
@@ -331,9 +343,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.antimatterCondenserCost.negate()));
             updateCookies(false);
             Buildings.antimatterCondenser();
-            antimatterCondenserPowerLabel.setText("AC Power = " + Buildings.antimatterCondenserPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
-            antimatterCondenserAmountLabel.setText("AC Amount = " + Buildings.antimatterCondenserAmount);
-            updateLabel(antimatterCondenserCostLabel, Buildings.antimatterCondenserCost, "AC");
+            //antimatterCondenserPowerLabel.setText("AC Power = " + Buildings.antimatterCondenserPower.divide(new BigDecimal("1000000"), 3, RoundingMode.HALF_EVEN) + " Million");
+            //antimatterCondenserAmountLabel.setText("AC Amount = " + Buildings.antimatterCondenserAmount);
+            //updateLabel(antimatterCondenserCostLabel, Buildings.antimatterCondenserCost, "AC");
+            antimatterCondenserButton.setText("Antimatter Condenser            " + Buildings.antimatterCondenserAmount);
             antimatterCondenserButton.setToolTipText("<html>Antimatter Condenser<br>amount: " + Buildings.antimatterCondenserAmount + "<br>cost: " + Buildings.antimatterCondenserCost + "<br>power: " + Buildings.antimatterCondenserPower + "<br>Condenses the antimatter in the universe into cookies.</html>");
         }
     }
@@ -343,9 +356,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.prismCost.negate()));
             updateCookies(false);
             Buildings.prism();
-            prismPowerLabel.setText("Prism Power = " + Buildings.prismPower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
-            prismAmountLabel.setText("Prism Amount = " + Buildings.prismAmount);
-            updateLabel(prismCostLabel, Buildings.prismCost, "Prism");
+            //prismPowerLabel.setText("Prism Power = " + Buildings.prismPower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
+            //prismAmountLabel.setText("Prism Amount = " + Buildings.prismAmount);
+            //updateLabel(prismCostLabel, Buildings.prismCost, "Prism");
+            prismButton.setText("Prism                                         " + Buildings.prismAmount);
             prismButton.setToolTipText("<html>Prism<br>amount: " + Buildings.prismAmount + "<br>cost: " + Buildings.prismCost + "<br>power: " + Buildings.prismPower + "<br>Converts light itself into cookies.</html>");
         }
     }
@@ -355,9 +369,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.chancemakerCost.negate()));
             updateCookies(false);
             Buildings.chancemaker();
-            chancemakerPowerLabel.setText("CM Power = " + Buildings.chancemakerPower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
-            chancemakerAmountLabel.setText("CM Amount = " + Buildings.chancemakerAmount);
-            updateLabel(chancemakerCostLabel, Buildings.chancemakerCost, "CM");
+            //chancemakerPowerLabel.setText("CM Power = " + Buildings.chancemakerPower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
+            //chancemakerAmountLabel.setText("CM Amount = " + Buildings.chancemakerAmount);
+            //updateLabel(chancemakerCostLabel, Buildings.chancemakerCost, "CM");
+            chancemakerButton.setText("Chancemaker                           " + Buildings.chancemakerAmount);
             chancemakerButton.setToolTipText("<html>Chancemaker<br>amount: " + Buildings.chancemakerAmount + "<br>cost: " + Buildings.chancemakerCost + "<br>power: " + Buildings.chancemakerPower + "<br>Generates cookies out of thin air through sheer luck.</html>");
         }
     }
@@ -367,9 +382,10 @@ public class LabelUpdater {
             GUI.totalCookies = GUI.totalCookies.add(new BigDecimal(Buildings.fractalEngineCost.negate()));
             updateCookies(false);
             Buildings.fractalEngine();
-            fractalEnginePowerLabel.setText("FE Power = " + Buildings.fractalEnginePower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
-            fractalEngineAmountLabel.setText("FE Amount = " + Buildings.fractalEngineAmount);
-            updateLabel(fractalEngineCostLabel, Buildings.fractalEngineCost, "FE");
+            //fractalEnginePowerLabel.setText("FE Power = " + Buildings.fractalEnginePower.divide(new BigDecimal("1000000000"), 3, RoundingMode.HALF_EVEN) + " Billion");
+            //fractalEngineAmountLabel.setText("FE Amount = " + Buildings.fractalEngineAmount);
+            //updateLabel(fractalEngineCostLabel, Buildings.fractalEngineCost, "FE");
+            fractalEngineButton.setText("Fractal Engine                          " + Buildings.fractalEngineAmount);
             fractalEngineButton.setToolTipText("<html>Fractal Engine<br>amount: " + Buildings.fractalEngineAmount + "<br>cost: " + Buildings.fractalEngineCost + "<br>power: " + Buildings.fractalEnginePower + "<br>Turns cookies into even more cookies.</html>");
         }
     }
