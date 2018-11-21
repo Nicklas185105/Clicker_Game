@@ -181,7 +181,7 @@ public class LabelUpdater {
             //cursorPowerLabel.setText("Cursor Power = " + Buildings.cursorPower);
             //cursorAmountLabel.setText("Cursor Amount = " + Buildings.cursorAmount);
             //updateLabel(cursorCostLabel, Buildings.cursorCost, "Cursor");
-            cursorButton.setText("Cursor                                     " + Buildings.cursorAmount);
+            cursorButton.setText(Integer.toString(Buildings.cursorAmount));
             cursorButton.setToolTipText("<html>Cursor<br>amount: " + Buildings.cursorAmount + "<br>cost: " + Buildings.cursorCost + "<br>power: " + Buildings.cursorPower + "<br>Autoclicks once every 10 seconds.</html>");
         }
     }
