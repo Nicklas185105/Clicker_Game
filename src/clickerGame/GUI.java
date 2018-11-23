@@ -126,7 +126,14 @@ class GUI {
         //----- Third Panel -----
         JPanel thirdPanel = new JPanel();
         thirdPanel.setBorder(new LineBorder(Color.black, 1, false));
-        thirdPanel.setLayout(new GridLayout(16, 1));
+        thirdPanel.setLayout(new FlowLayout());
+
+        //----- Buildings Scroll Pane -----
+        JScrollPane buildingsScrollPane = new JScrollPane();
+
+        //----- Buildings Panel -----
+        JPanel buildingsPanel = new JPanel();
+        buildingsPanel.setLayout(new GridLayout(16,1));
 
         //----- Cursor Building -----
         LabelUpdater.cursorButton = new JButtonAllign(Integer.toString(Buildings.cursorAmount));
@@ -135,142 +142,148 @@ class GUI {
         loadImage(LabelUpdater.cursorButton, "resources/cursor1.png");
         LabelUpdater.cursorButton.addActionListener(e -> LabelUpdater.updateCursorLabel());
         LabelUpdater.cursorButton.setToolTipText("<html>Cursor<br>amount: " + Buildings.cursorAmount + "<br>cost: " + Buildings.cursorCost + "<br>power: " + Buildings.cursorPower + "<br>Autoclicks once every 10 seconds.</html>");
-        thirdPanel.add(LabelUpdater.cursorButton);
+        buildingsPanel.add(LabelUpdater.cursorButton);
 
         //----- Grandma Building -----
-        LabelUpdater.grandmaButton = new JButtonAllign("Grandma" + Integer.toString(Buildings.grandmaAmount));
+        LabelUpdater.grandmaButton = new JButtonAllign(Integer.toString(Buildings.grandmaAmount));
         LabelUpdater.grandmaButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.grandmaButton.setFont(LabelUpdater.grandmaButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.grandmaButton, "resources/grandma.png");
         LabelUpdater.grandmaButton.addActionListener(e -> LabelUpdater.updateGrandmaLabel());
         LabelUpdater.grandmaButton.setToolTipText("<html>Grandma<br>amount: " + Buildings.grandmaAmount + "<br>cost: " + Buildings.grandmaCost + "<br>power: " + Buildings.grandmaPower + "<br>A nice grandma to bake more cookies.</html>");
-        thirdPanel.add(LabelUpdater.grandmaButton);
+        buildingsPanel.add(LabelUpdater.grandmaButton);
 
         //----- Farm Building -----
-        LabelUpdater.farmButton = new JButtonAllign("Farm " + Integer.toString(Buildings.farmAmount));
+        LabelUpdater.farmButton = new JButtonAllign(Integer.toString(Buildings.farmAmount));
         LabelUpdater.farmButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.farmButton.setFont(LabelUpdater.farmButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.farmButton, "resources/farm.png");
         LabelUpdater.farmButton.addActionListener(e -> LabelUpdater.updateFarmLabel());
         LabelUpdater.farmButton.setToolTipText("<html>Farm<br>amount: " + Buildings.farmAmount + "<br>cost: " + Buildings.farmCost + "<br>power: " + Buildings.farmPower + "<br>Grows cookie plants from cookie seeds.</html>");
-        thirdPanel.add(LabelUpdater.farmButton);
+        buildingsPanel.add(LabelUpdater.farmButton);
 
         //----- Mine Building -----
-        LabelUpdater.mineButton = new JButtonAllign("Mine " + Integer.toString(Buildings.mineAmount));
+        LabelUpdater.mineButton = new JButtonAllign(Integer.toString(Buildings.mineAmount));
         LabelUpdater.mineButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.mineButton.setFont(LabelUpdater.mineButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.mineButton, "resources/mine.png");
         LabelUpdater.mineButton.addActionListener(e -> LabelUpdater.updateMineLabel());
         LabelUpdater.mineButton.setToolTipText("<html>Mine<br>amount: " + Buildings.mineAmount + "<br>cost: " + Buildings.mineCost + "<br>power: " + Buildings.minePower + "<br>Mines out cookie dough and chocolate chips.</html>");
-        thirdPanel.add(LabelUpdater.mineButton);
+        buildingsPanel.add(LabelUpdater.mineButton);
 
         //----- Factory Building -----
-        LabelUpdater.factoryButton = new JButtonAllign("Factory " + Integer.toString(Buildings.factoryAmount));
+        LabelUpdater.factoryButton = new JButtonAllign(Integer.toString(Buildings.factoryAmount));
         LabelUpdater.factoryButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.factoryButton.setFont(LabelUpdater.factoryButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.factoryButton, "resources/factory.png");
         LabelUpdater.factoryButton.addActionListener(e -> LabelUpdater.updateFactoryLabel());
         LabelUpdater.factoryButton.setToolTipText("<html>Factory<br>amount: " + Buildings.factoryAmount + "<br>cost: " + Buildings.factoryCost + "<br>power: " + Buildings.factoryPower + "<br>Produces large quantities of cookies.</html>");
-        thirdPanel.add(LabelUpdater.factoryButton);
+        buildingsPanel.add(LabelUpdater.factoryButton);
 
         //----- Bank Building -----
-        LabelUpdater.bankButton = new JButtonAllign("Bank " + Integer.toString(Buildings.bankAmount));
+        LabelUpdater.bankButton = new JButtonAllign(Integer.toString(Buildings.bankAmount));
         LabelUpdater.bankButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.bankButton.setFont(LabelUpdater.bankButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.bankButton, "resources/bank.png");
         LabelUpdater.bankButton.addActionListener(e -> LabelUpdater.updateBankLabel());
         LabelUpdater.bankButton.setToolTipText("<html>Bank<br>amount: " + Buildings.bankAmount + "<br>cost: " + Buildings.bankCost + "<br>power: " + Buildings.bankPower + "<br>Generates cookies from interest.</html>");
-        thirdPanel.add(LabelUpdater.bankButton);
+        buildingsPanel.add(LabelUpdater.bankButton);
 
         //----- Temple Building -----
-        LabelUpdater.templeButton = new JButtonAllign("Temple " + Integer.toString(Buildings.templeAmount));
+        LabelUpdater.templeButton = new JButtonAllign(Integer.toString(Buildings.templeAmount));
         LabelUpdater.templeButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.templeButton.setFont(LabelUpdater.templeButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.templeButton, "resources/temple.png");
         LabelUpdater.templeButton.addActionListener(e -> LabelUpdater.updateTempleLabel());
         LabelUpdater.templeButton.setToolTipText("<html>Temple<br>amount: " + Buildings.templeAmount + "<br>cost: " + Buildings.templeCost + "<br>power: " + Buildings.templePower + "<br>Full of precious, ancient chocolate.</html>");
-        thirdPanel.add(LabelUpdater.templeButton);
+        buildingsPanel.add(LabelUpdater.templeButton);
 
         //----- Wizard Tower Building -----
-        LabelUpdater.wizardTowerButton = new JButtonAllign("Wizard Tower " + Integer.toString(Buildings.wizardTowerAmount));
+        LabelUpdater.wizardTowerButton = new JButtonAllign(Integer.toString(Buildings.wizardTowerAmount));
         LabelUpdater.wizardTowerButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.wizardTowerButton.setFont(LabelUpdater.wizardTowerButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.wizardTowerButton, "resources/wizardTower.png");
         LabelUpdater.wizardTowerButton.addActionListener(e -> LabelUpdater.updateWizardTowerLabel());
         LabelUpdater.wizardTowerButton.setToolTipText("<html>Wizard Tower<br>amount: " + Buildings.wizardTowerAmount + "<br>cost: " + Buildings.wizardTowerCost + "<br>power: " + Buildings.wizardTowerPower + "<br>Summons cookies with magic spells.</html>");
-        thirdPanel.add(LabelUpdater.wizardTowerButton);
+        buildingsPanel.add(LabelUpdater.wizardTowerButton);
 
         //----- Shipment Building -----
-        LabelUpdater.shipmentButton = new JButtonAllign("Shipment " + Integer.toString(Buildings.shipmentAmount));
+        LabelUpdater.shipmentButton = new JButtonAllign(Integer.toString(Buildings.shipmentAmount));
         LabelUpdater.shipmentButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.shipmentButton.setFont(LabelUpdater.shipmentButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.shipmentButton, "resources/shipment.png");
         LabelUpdater.shipmentButton.addActionListener(e -> LabelUpdater.updateShipmentLabel());
         LabelUpdater.shipmentButton.setToolTipText("<html>Shipment<br>amount: " + Buildings.shipmentAmount + "<br>cost: " + Buildings.shipmentCost + "<br>power: " + Buildings.shipmentPower + "<br>Brings in fresh cookies from the cookie planet.</html>");
-        thirdPanel.add(LabelUpdater.shipmentButton);
+        buildingsPanel.add(LabelUpdater.shipmentButton);
 
         //----- Alchemy Lab Building -----
-        LabelUpdater.alchemyLabButton = new JButtonAllign("Alchemy Lab " + Integer.toString(Buildings.alchemyLabAmount));
+        LabelUpdater.alchemyLabButton = new JButtonAllign(Integer.toString(Buildings.alchemyLabAmount));
         LabelUpdater.alchemyLabButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.alchemyLabButton.setFont(LabelUpdater.alchemyLabButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.alchemyLabButton, "resources/alchemyLab.png");
         LabelUpdater.alchemyLabButton.addActionListener(e -> LabelUpdater.updateAlchemyLabLabel());
         LabelUpdater.alchemyLabButton.setToolTipText("<html>Alchemy Lab<br>amount: " + Buildings.alchemyLabAmount + "<br>cost: " + Buildings.alchemyLabCost + "<br>power: " + Buildings.alchemyLabPower + "<br>Turns gold into cookies!</html>");
-        thirdPanel.add(LabelUpdater.alchemyLabButton);
+        buildingsPanel.add(LabelUpdater.alchemyLabButton);
 
         //----- Portal Building -----
-        LabelUpdater.portalButton = new JButtonAllign("Portal " + Integer.toString(Buildings.portalAmount));
+        LabelUpdater.portalButton = new JButtonAllign(Integer.toString(Buildings.portalAmount));
         LabelUpdater.portalButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.portalButton.setFont(LabelUpdater.portalButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.portalButton, "resources/portal.png");
         LabelUpdater.portalButton.addActionListener(e -> LabelUpdater.updatePortalLabel());
         LabelUpdater.portalButton.setToolTipText("<html>Portal<br>amount: " + Buildings.portalAmount + "<br>cost: " + Buildings.portalCost + "<br>power: " + Buildings.portalPower + "<br>Opens the door to the Cookieverse.</html>");
-        thirdPanel.add(LabelUpdater.portalButton);
+        buildingsPanel.add(LabelUpdater.portalButton);
 
         //----- Time Machine Building -----
-        LabelUpdater.timeMachineButton = new JButtonAllign("Time Machine " + Integer.toString(Buildings.timeMachineAmount));
+        LabelUpdater.timeMachineButton = new JButtonAllign(Integer.toString(Buildings.timeMachineAmount));
         LabelUpdater.timeMachineButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.timeMachineButton.setFont(LabelUpdater.timeMachineButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.timeMachineButton, "resources/timeMachine.png");
         LabelUpdater.timeMachineButton.addActionListener(e -> LabelUpdater.updateTimeMachineLabel());
         LabelUpdater.timeMachineButton.setToolTipText("<html>Time Machine<br>amount: " + Buildings.timeMachineAmount + "<br>cost: " + Buildings.timeMachineCost + "<br>power: " + Buildings.timeMachinePower + "<br>Brings cookies from the past, before they were even eaten.</html>");
-        thirdPanel.add(LabelUpdater.timeMachineButton);
+        buildingsPanel.add(LabelUpdater.timeMachineButton);
 
         //----- Antimatter Condenser Building -----
-        LabelUpdater.antimatterCondenserButton = new JButtonAllign("Antimatter Condenser " + Integer.toString(Buildings.antimatterCondenserAmount));
+        LabelUpdater.antimatterCondenserButton = new JButtonAllign(Integer.toString(Buildings.antimatterCondenserAmount));
         LabelUpdater.antimatterCondenserButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.antimatterCondenserButton.setFont(LabelUpdater.antimatterCondenserButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.antimatterCondenserButton, "resources/antimatterCondenser.png");
         LabelUpdater.antimatterCondenserButton.addActionListener(e -> LabelUpdater.updateAntimatterCondeserLabel());
         LabelUpdater.antimatterCondenserButton.setToolTipText("<html>Antimatter Condenser<br>amount: " + Buildings.antimatterCondenserAmount + "<br>cost: " + Buildings.antimatterCondenserCost + "<br>power: " + Buildings.antimatterCondenserPower + "<br>Condenses the antimatter in the universe into cookies.</html>");
-        thirdPanel.add(LabelUpdater.antimatterCondenserButton);
+        buildingsPanel.add(LabelUpdater.antimatterCondenserButton);
 
         //----- Prism Building -----
-        LabelUpdater.prismButton = new JButtonAllign("Prism " + Integer.toString(Buildings.prismAmount));
+        LabelUpdater.prismButton = new JButtonAllign(Integer.toString(Buildings.prismAmount));
         LabelUpdater.prismButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.prismButton.setFont(LabelUpdater.prismButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.prismButton, "resources/prism.png");
         LabelUpdater.prismButton.addActionListener(e -> LabelUpdater.updatePrismLabel());
         LabelUpdater.prismButton.setToolTipText("<html>Prism<br>amount: " + Buildings.prismAmount + "<br>cost: " + Buildings.prismCost + "<br>power: " + Buildings.prismPower + "<br>Converts light itself into cookies.</html>");
-        thirdPanel.add(LabelUpdater.prismButton);
+        buildingsPanel.add(LabelUpdater.prismButton);
 
         //----- Chancemaker Building -----
-        LabelUpdater.chancemakerButton = new JButtonAllign("Chancemaker " + Integer.toString(Buildings.chancemakerAmount));
+        LabelUpdater.chancemakerButton = new JButtonAllign(Integer.toString(Buildings.chancemakerAmount));
         LabelUpdater.chancemakerButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.chancemakerButton.setFont(LabelUpdater.chancemakerButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.chancemakerButton, "resources/chancemaker.png");
         LabelUpdater.chancemakerButton.addActionListener(e -> LabelUpdater.updateChancemakerLabel());
         LabelUpdater.chancemakerButton.setToolTipText("<html>Chancemaker<br>amount: " + Buildings.chancemakerAmount + "<br>cost: " + Buildings.chancemakerCost + "<br>power: " + Buildings.chancemakerPower + "<br>Generates cookies out of thin air through sheer luck.</html>");
-        thirdPanel.add(LabelUpdater.chancemakerButton);
+        buildingsPanel.add(LabelUpdater.chancemakerButton);
 
         //----- Fractal Engine Building -----
-        LabelUpdater.fractalEngineButton = new JButtonAllign("Fractal Engine " + Integer.toString(Buildings.fractalEngineAmount));
+        LabelUpdater.fractalEngineButton = new JButtonAllign(Integer.toString(Buildings.fractalEngineAmount));
         LabelUpdater.fractalEngineButton.setHorizontalAlignment(SwingConstants.LEADING);
         LabelUpdater.fractalEngineButton.setFont(LabelUpdater.fractalEngineButton.getFont().deriveFont(30f));
         loadImage(LabelUpdater.fractalEngineButton, "resources/fractalEngine.png");
         LabelUpdater.fractalEngineButton.addActionListener(e -> LabelUpdater.updateFractalEngineLabel());
         LabelUpdater.fractalEngineButton.setToolTipText("<html>Fractal Engine<br>amount: " + Buildings.fractalEngineAmount + "<br>cost: " + Buildings.fractalEngineCost + "<br>power: " + Buildings.fractalEnginePower + "<br>Turns cookies into even more cookies.</html>");
-        thirdPanel.add(LabelUpdater.fractalEngineButton);
+        buildingsPanel.add(LabelUpdater.fractalEngineButton);
+
+        //
+        buildingsScrollPane.setViewport(buildingsPanel);
+
+        //
+        thirdPanel.add(buildingsScrollPane);
 
         //Tilføjer Third Panel ind i Main Panel
         mainPanel.add(thirdPanel);
